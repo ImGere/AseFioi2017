@@ -96,7 +96,7 @@ class Point2D
   # la funzione non deve alterare lo stato interno dell'oggetto, ma restituire
   # un nuovo oggetto
   def + (point)
-    nil
+    return Point2D.new(self.x + point.x, self.y + point.y)
   end
 
   # Restituisce una rappresentazione testuale dell'oggetto punto, nella forma
