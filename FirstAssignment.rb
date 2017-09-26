@@ -126,7 +126,27 @@ class Book
   # publisher deve essere una stringa non vuota
   # isbn deve essere un Fixnum minore di 10**10 e maggiore di 10**9
   def valid?
-    nil
+    num_valid = 0
+    if(@title.class == String && @title != nil)
+      num_valid += 1
+    end
+    if(@author.class == String && @author != nil)
+      num_valid += 1
+    end
+    if(@release_date.class == Date)
+      num_valid += 1
+    end
+    if(@publisher.class == String && @publisher != nil)
+      num_valid += 1
+    end
+    if(@isbn.class == Fixnum && @isbn <= 10**10 && @isbn >= 10**9)
+      num_valid += 1
+    end
+    if num_valid == 5
+      true
+    else
+      false
+    end
   end
 
   # restituisce un array di simboli.
