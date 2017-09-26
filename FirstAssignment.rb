@@ -117,6 +117,11 @@ class Book
   # Implementa il costruttore
   # dai un'occhiata a https://robots.thoughtbot.com/ruby-2-keyword-arguments
   def initialize(title:, author:, release_date:, publisher:, isbn:)
+    @title= title
+	  @author= author
+	  @release_date= release_date
+	  @publisher= publisher
+	  @isbn= isbn
   end
 
   # requisiti perche' un libro sia considerato valido:
