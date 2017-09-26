@@ -26,9 +26,9 @@ end
 def has_nested_array?(array)
   found = false
   if array != nil
-    array.each do |element| 
+    array.each do |element|
       if element.is_a?(Array)
-         found = true
+        found = true
       end
     end
     return found
@@ -37,7 +37,15 @@ end
 
 # Conta il numero di caratteri maiuscoli in una stringa
 def count_upcased_letters(string)
-  false
+  numeroUppercase = 0
+  string.chars.to_a.each do |valore|
+    if(valore == valore.upcase)
+      if(valore > 'A' && valore < 'Z')
+        numeroUppercase+=1
+      end
+    end
+  end
+  numeroUppercase
 end
 
 # Converte un numero in numero romano
