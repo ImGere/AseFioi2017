@@ -105,7 +105,7 @@ class Point2D
   # "(x,y)", senza spazi.
   # ES: siano x = 1, y = 2.345, la funzione deve restituire "(1,2.345)"
   def to_s
-    nil
+    "(#{x},#{y})"
   end
 end
 
