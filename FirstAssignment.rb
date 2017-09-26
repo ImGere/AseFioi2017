@@ -84,11 +84,13 @@ class Point2D
   # costruisce un punto con coordinate (x,y)
   # nota che non e' necessario nessun controllo sul tipo di x e y
   def initialize(x, y)
-    nil
+    @x = x
+    @y = y
   end
 
   # la classe punto deve avere rendere accessibili gli attributi `x` e `y`
   # IN SOLA LETTURA
+  attr_reader :x, :y
 
   # la funzione `+` riceve come argomento un oggetto Point2D e restituisce un
   # nuovo oggetto Point2D che ha come coordinate la somma delle coordinate dei
