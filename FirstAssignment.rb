@@ -40,7 +40,7 @@ def count_upcased_letters(string)
   numeroUppercase = 0
   string.chars.to_a.each do |valore|
     if(valore == valore.upcase)
-      if(valore > 'A' && valore < 'Z')
+      if(valore >= 'A' && valore <= 'Z')
         numeroUppercase+=1
       end
     end
