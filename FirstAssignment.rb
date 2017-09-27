@@ -171,5 +171,4 @@ class Book
     end
     return array
   end
-  end
 end
