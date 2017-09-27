@@ -112,7 +112,7 @@ end
 require 'date' # necessario per l'uso della classe Date
 
 class Book
-  attr_accessor :title, :author, :release_date, :publisher, :isbn
+  attr_accessor :title, :author, :release_date, :publisher, :isbn, :control
 
   # Implementa il costruttore
   # dai un'occhiata a https://robots.thoughtbot.com/ruby-2-keyword-arguments
@@ -122,6 +122,7 @@ class Book
     @release_date= release_date
     @publisher= publisher
     @isbn= isbn
+    @control={:title=>"not valid", :author=>"not valid", :release_date=>"not valid", :publisher=>"not valid", :isbn=>"not valid"}
   end
 
   # requisiti perche' un libro sia considerato valido:
@@ -132,26 +133,28 @@ class Book
   # isbn deve essere un Fixnum minore di 10**10 e maggiore di 10**9
   def valid?
     num_valid = 0
-    if(@title.class == String && @title != nil)
-      num_valid += 1
+
+    if(@title.class == String && !@title.empty?)
+      num_valid+=1
+      @control[:title]="valid"
     end
-    if(@author.class == String && @author != nil)
-      num_valid += 1
+    if(@author.class == String && !@author.empty?)
+      num_valid+=1
+      @control[:author]="valid"
     end
     if(@release_date.class == Date)
-      num_valid += 1
+      num_valid+=1
+      @control[:release_date]="valid"
     end
-    if(@publisher.class == String && @publisher != nil)
-      num_valid += 1
+    if(@publisher.class == String && !@publisher.empty?)
+      num_valid+=1
+      @control[:publisher]="valid"
     end
     if(@isbn.class == Fixnum && @isbn <= 10**10 && @isbn >= 10**9)
-      num_valid += 1
+      num_valid+=1
+      @control[:isbn]="valid"
     end
-    if num_valid == 5
-      true
-    else
-      false
-    end
+    return num_valid==5
   end
 
   # restituisce un array di simboli.
@@ -160,6 +163,13 @@ class Book
   # quell'attributo deve essere presente nel vettore, in qualsiasi ordine.
   # esempio: title e author non sono validi, restituisce [:title, :author]
   def errors
-    nil
+    array=Array.new
+    @control.each do |key, value| 
+	   if value != "valid"
+		  array.insert(array.count,key)
+	   end
+    end
+    return array
+  end
   end
 end
