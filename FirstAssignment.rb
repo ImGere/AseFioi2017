@@ -133,7 +133,7 @@ class Book
   # isbn deve essere un Fixnum minore di 10**10 e maggiore di 10**9
   def valid?
     num_valid = 0
-
+    # raise ArgumentError.new('title not valid') unless @title.is_a? (String)
     if(@title.class == String && !@title.empty?)
       num_valid+=1
       @control[:title]="valid"
