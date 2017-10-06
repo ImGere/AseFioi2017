@@ -156,7 +156,7 @@ class Book
     arrayOfErrors=Array.new
     @control.each do |key, value| 
 	   if value != "valid"
-		  arrayOfErrors.insert(arrayOfErrors.count, key)
+		  arrayOfErrors << key
 	   end
     end
     return arrayOfErrors
