@@ -24,6 +24,8 @@ end
 
 # Restituisce true se l'array contiene altri array (es. [[1],2,3] => true)
 def has_nested_array?(array)
+  # controllo se un array é vuoto,
+  # se non lo é cerco all'interno di ogni elemento e controllo se all'interno ci sono altri array
   found = false
   if array != nil
     array.each do |element|
@@ -31,12 +33,13 @@ def has_nested_array?(array)
         found = true
       end
     end
-    return found
   end
+  return found
 end
 
 # Conta il numero di caratteri maiuscoli in una stringa
 def count_upcased_letters(string)
+  # per ogni carattere contenuto nella stringa controllo che sia una lettera e che sia maiuscola
   numeroUppercase = 0
   string.chars.to_a.each do |valore|
     if(valore == valore.upcase)
@@ -122,6 +125,7 @@ class Book
     @release_date= release_date
     @publisher= publisher
     @isbn= isbn
+    # Mi creo un array dove tengo salvato se un valore é valido oppure no, mi servirà per la funzione error
     @control={:title=>"valid", :author=>"valid", :release_date=>"valid", :publisher=>"valid", :isbn=>"valid"}
   end
 
@@ -139,6 +143,7 @@ class Book
     @control[:publisher]="not valid" unless (@publisher.is_a?(String) && !@publisher.empty?)
     @control[:isbn]="not valid" unless (@isbn.is_a?(Fixnum) && @isbn <= 10**10 && @isbn >= 10**9)
     
+    # se anche un solo campo non é valido restituisco falso
     @control.each do |key, value|
         if value != "valid"
             return false
@@ -153,12 +158,7 @@ class Book
   # quell'attributo deve essere presente nel vettore, in qualsiasi ordine.
   # esempio: title e author non sono validi, restituisce [:title, :author]
   def errors
-    arrayOfErrors=Array.new
-    @control.each do |key, value| 
-	   if value != "valid"
-		  arrayOfErrors << key
-	   end
-    end
-    return arrayOfErrors
+    # ritorno solo le chiavi dei campi che non hanno passato la validazione
+    return @control.keys.select { |key| @control[key] == "not valid" }
   end
 end
