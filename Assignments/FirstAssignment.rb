@@ -112,7 +112,7 @@ end
 require 'date' # necessario per l'uso della classe Date
 
 class Book
-  attr_accessor :title, :author, :release_date, :publisher, :isbn, :control
+  attr_accessor :title, :author, :release_date, :publisher, :isbn
 
   # Implementa il costruttore
   # dai un'occhiata a https://robots.thoughtbot.com/ruby-2-keyword-arguments
@@ -122,7 +122,7 @@ class Book
     @release_date= release_date
     @publisher= publisher
     @isbn= isbn
-    @control={:title=>"not valid", :author=>"not valid", :release_date=>"not valid", :publisher=>"not valid", :isbn=>"not valid"}
+    @control={:title=>"valid", :author=>"valid", :release_date=>"valid", :publisher=>"valid", :isbn=>"valid"}
   end
 
   # requisiti perche' un libro sia considerato valido:
@@ -132,29 +132,19 @@ class Book
   # publisher deve essere una stringa non vuota
   # isbn deve essere un Fixnum minore di 10**10 e maggiore di 10**9
   def valid?
-    num_valid = 0
-    # raise ArgumentError.new('title not valid') unless @title.is_a? (String)
-    if(@title.class == String && !@title.empty?)
-      num_valid+=1
-      @control[:title]="valid"
+    # Controllo di tutti i campi
+    @control[:title]="not valid" unless (@title.is_a?(String) && !@title.empty?)
+    @control[:author]="not valid" unless (@author.is_a?(String) && !@author.empty?)
+    @control[:release_date]="not valid" unless (@release_date.is_a?(Date))
+    @control[:publisher]="not valid" unless (@publisher.is_a?(String) && !@publisher.empty?)
+    @control[:isbn]="not valid" unless (@isbn.is_a?(Fixnum) && @isbn <= 10**10 && @isbn >= 10**9)
+    
+    @control.each do |key, value|
+        if value != "valid"
+            return false
+        end
     end
-    if(@author.class == String && !@author.empty?)
-      num_valid+=1
-      @control[:author]="valid"
-    end
-    if(@release_date.class == Date)
-      num_valid+=1
-      @control[:release_date]="valid"
-    end
-    if(@publisher.class == String && !@publisher.empty?)
-      num_valid+=1
-      @control[:publisher]="valid"
-    end
-    if(@isbn.class == Fixnum && @isbn <= 10**10 && @isbn >= 10**9)
-      num_valid+=1
-      @control[:isbn]="valid"
-    end
-    return num_valid==5
+    return true
   end
 
   # restituisce un array di simboli.
@@ -163,12 +153,12 @@ class Book
   # quell'attributo deve essere presente nel vettore, in qualsiasi ordine.
   # esempio: title e author non sono validi, restituisce [:title, :author]
   def errors
-    array=Array.new
+    arrayOfErrors=Array.new
     @control.each do |key, value| 
 	   if value != "valid"
-		  array.insert(array.count,key)
+		  arrayOfErrors << key
 	   end
     end
-    return array
+    return arrayOfErrors
   end
 end
