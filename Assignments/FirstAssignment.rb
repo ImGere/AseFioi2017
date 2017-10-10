@@ -8,6 +8,7 @@ def welcome_message
 end
 
 # Restituisce n! (fattoriale)
+#Calcolo del fattoriale usando il metodo reduce applicato ad un array con elementi da 1 fino al numero inserito
 def factorial(n)
   if n >= 1 
       return (1..n).reduce(:*)
@@ -18,6 +19,7 @@ def factorial(n)
 end
 
 # Restituisce la stringa più lunga in un array di stringhe
+# Uso del metodo max_by per fare la ricerca della stringa piu' lunga nell'array di stringhe
 def find_longest_string(array)
   array.max_by { | x | x.length }
 end
@@ -41,7 +43,7 @@ end
 def count_upcased_letters(string)
   # per ogni carattere contenuto nella stringa controllo che sia una lettera e che sia maiuscola
   numeroUppercase = 0
-  string.chars.to_a.each do |valore|
+  string.chars.each do |valore|
     if(valore == valore.upcase)
       if(valore >= 'A' && valore <= 'Z')
         numeroUppercase+=1
@@ -53,6 +55,7 @@ end
 
 # Converte un numero in numero romano
 def to_roman(n)
+  #si fa uso di un'array di array, ciascuno contenente i caratteri principali romani e il corrispondente valore numerico
   indice = [
     ["M", 1000], 
     ["CM", 900],
@@ -68,14 +71,18 @@ def to_roman(n)
     ["IV", 4],
     ["I", 1], 
   ]
-  number = ""
+  #stringa vuota usata per concatenare i caratteri romani
+  roman_number = ""
   indice.each do |i|
     lettera = i[0]
     valore =  i[1]
-    number += lettera*(n / valore)
+    #concateno ciascun carattere tante volte quanto e' il risultato della divisione tra il numero e il valore del carattere
+    roman_number += lettera*(n / valore)
+    #modifico il valore del carattere assegnandoli un nuovo valore pari al resto della divisione tra il numero e
+    #il valore corrispondente al carattere
     n = n % valore
   end
-  return number
+  return roman_number
 end
 
 ######
@@ -101,7 +108,7 @@ class Point2D
   # la funzione non deve alterare lo stato interno dell'oggetto, ma restituire
   # un nuovo oggetto
   def + (point)
-    return Point2D.new(self.x + point.x, self.y + point.y)
+    return Point2D.new(@x + point.x, @y + point.y)
   end
 
   # Restituisce una rappresentazione testuale dell'oggetto punto, nella forma
@@ -125,8 +132,8 @@ class Book
     @release_date= release_date
     @publisher= publisher
     @isbn= isbn
-    # Mi creo un array dove tengo salvato se un valore é valido oppure no, mi servirà per la funzione error
-    @control={:title=>"valid", :author=>"valid", :release_date=>"valid", :publisher=>"valid", :isbn=>"valid"}
+    # Mi creo un hash dove tengo salvato se un valore é valido oppure no, mi servirà per la funzione error
+    @control={:title=>"not valid", :author=>"not valid", :release_date=>"not valid", :publisher=>"not valid", :isbn=>"not valid"}
   end
 
   # requisiti perche' un libro sia considerato valido:
@@ -137,11 +144,11 @@ class Book
   # isbn deve essere un Fixnum minore di 10**10 e maggiore di 10**9
   def valid?
     # Controllo di tutti i campi
-    @control[:title]="not valid" unless (@title.is_a?(String) && !@title.empty?)
-    @control[:author]="not valid" unless (@author.is_a?(String) && !@author.empty?)
-    @control[:release_date]="not valid" unless (@release_date.is_a?(Date))
-    @control[:publisher]="not valid" unless (@publisher.is_a?(String) && !@publisher.empty?)
-    @control[:isbn]="not valid" unless (@isbn.is_a?(Fixnum) && @isbn <= 10**10 && @isbn >= 10**9)
+    @control[:title]="valid" if (@title.is_a?(String) && !@title.empty?)
+    @control[:author]="valid" if (@author.is_a?(String) && !@author.empty?)
+    @control[:release_date]="valid" if (@release_date.is_a?(Date))
+    @control[:publisher]="valid" if (@publisher.is_a?(String) && !@publisher.empty?)
+    @control[:isbn]="valid" if (@isbn.is_a?(Fixnum) && @isbn <= 10**10 && @isbn >= 10**9)
     
     # se anche un solo campo non é valido restituisco falso
     @control.each do |key, value|
