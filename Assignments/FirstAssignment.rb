@@ -8,7 +8,7 @@ def welcome_message
 end
 
 # Restituisce n! (fattoriale)
-#Calcolo del fattoriale usando il metodo reduce applicato ad un array con elementi da 1 fino al numero inserito
+# Calcolo del fattoriale usando il metodo reduce applicato ad un array con elementi da 1 fino al numero inserito
 def factorial(n)
   if n >= 1 
       return (1..n).reduce(:*)
@@ -55,7 +55,8 @@ end
 
 # Converte un numero in numero romano
 def to_roman(n)
-  #si fa uso di un'array di array, ciascuno contenente i caratteri principali romani e il corrispondente valore numerico
+  # si fa uso di un'array di array, ciascuno contenente un indice dei numeri romani e i corrispondenti valori numerici
+  # inserendo inoltre i casi particolari di questa numerazione ad esempio : 4,9,40...
   indice = [
     ["M", 1000], 
     ["CM", 900],
@@ -71,15 +72,15 @@ def to_roman(n)
     ["IV", 4],
     ["I", 1], 
   ]
-  #stringa vuota usata per concatenare i caratteri romani
+  # stringa vuota usata per concatenare i caratteri romani
   roman_number = ""
   indice.each do |i|
     lettera = i[0]
     valore =  i[1]
-    #concateno ciascun carattere tante volte quanto e' il risultato della divisione tra il numero e il valore del carattere
+    # concateno ciascun carattere tante volte quanto e' il risultato della divisione tra il numero e il valore del carattere
     roman_number += lettera*(n / valore)
-    #modifico il valore del carattere assegnandoli un nuovo valore pari al resto della divisione tra il numero e
-    #il valore corrispondente al carattere
+    # modifico il valore del carattere assegnandoli un nuovo valore pari al resto della divisione tra il numero e
+    # il valore corrispondente al carattere
     n = n % valore
   end
   return roman_number
