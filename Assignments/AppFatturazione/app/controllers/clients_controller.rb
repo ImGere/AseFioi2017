@@ -15,6 +15,7 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @users = User.find_each
   end
 
   # GET /clients/1/edit
@@ -24,6 +25,8 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
+    @users = User.find_each
+
     @client = Client.new(client_params)
 
     respond_to do |format|
@@ -69,6 +72,6 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :surname, :email)
+      params.require(:client).permit(:name, :codice_fiscale, :email, :partita_iva, :user_id)
     end
 end

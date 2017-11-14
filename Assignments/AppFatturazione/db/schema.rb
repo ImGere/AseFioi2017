@@ -10,34 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113153535) do
+ActiveRecord::Schema.define(version: 20171114154915) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
-    t.string "surname"
+    t.string "codice_fiscale"
     t.string "email"
+    t.integer "partita_iva"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "hours", force: :cascade do |t|
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "client_id"
-    t.index ["client_id"], name: "index_hours_on_client_id"
-    t.index ["user_id"], name: "index_hours_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

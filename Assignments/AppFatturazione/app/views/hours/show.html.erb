@@ -1,8 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Date:</strong>
+  <%= @hour.date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @hour.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @hour.end_time %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @hour.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= User.find(@hour.user_id).name %>
+</p>
+<p>
+  <strong>Client:</strong>
+  <%= Client.find(@hour.client_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_hour_path(@hour) %> |

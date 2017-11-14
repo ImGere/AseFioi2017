@@ -6,13 +6,23 @@
 </p>
 
 <p>
-  <strong>Surname:</strong>
-  <%= @client.surname %>
+  <strong>Codice fiscale:</strong>
+  <%= @client.codice_fiscale %>
 </p>
 
 <p>
   <strong>Email:</strong>
   <%= @client.email %>
+</p>
+
+<p>
+  <strong>Partita iva:</strong>
+  <%= @client.partita_iva %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= User.find(@client.user_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |

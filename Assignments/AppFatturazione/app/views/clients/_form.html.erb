@@ -17,14 +17,25 @@
   </div>
 
   <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname, id: :client_surname %>
+    <%= form.label :codice_fiscale %>
+    <%= form.text_field :codice_fiscale, id: :client_codice_fiscale %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email, id: :client_email %>
   </div>
+
+  <div class="field">
+    <%= form.label :partita_iva %>
+    <%= form.number_field :partita_iva, id: :client_partita_iva %>
+  </div>
+
+  <div class="field">
+    <%= form.label :users %>
+    <%= form.collection_select :user_id, User.order(:id),:id,:email, include_blank: true %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

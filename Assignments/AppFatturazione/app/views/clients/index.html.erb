@@ -6,8 +6,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Surname</th>
+      <th>Codice fiscale</th>
       <th>Email</th>
+      <th>Partita iva</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +18,10 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= client.name %></td>
-        <td><%= client.surname %></td>
+        <td><%= client.codice_fiscale %></td>
         <td><%= client.email %></td>
+        <td><%= client.partita_iva %></td>
+        <td><%= User.find(client.user_id).name %></td>
         <td><%= link_to 'Show', client %></td>
         <td><%= link_to 'Edit', edit_client_path(client) %></td>
         <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>

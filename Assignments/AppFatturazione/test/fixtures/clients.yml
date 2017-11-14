@@ -2,10 +2,12 @@
 
 one:
   name: MyString
-  surname: MyString
+  codice_fiscale: MyString
   email: MyString
+  partita_iva: 1
 
 two:
   name: MyString
-  surname: MyString
+  codice_fiscale: MyString
   email: MyString
+  partita_iva: 1

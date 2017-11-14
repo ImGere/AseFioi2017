@@ -17,7 +17,7 @@ class HoursControllerTest < ActionDispatch::IntegrationTest
 
   test "should create hour" do
     assert_difference('Hour.count') do
-      post hours_url, params: { hour: { description: @hour.description } }
+      post hours_url, params: { hour: { date: @hour.date, description: @hour.description, end_time: @hour.end_time, start_time: @hour.start_time } }
     end
 
     assert_redirected_to hour_url(Hour.last)
@@ -34,7 +34,7 @@ class HoursControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update hour" do
-    patch hour_url(@hour), params: { hour: { description: @hour.description } }
+    patch hour_url(@hour), params: { hour: { date: @hour.date, description: @hour.description, end_time: @hour.end_time, start_time: @hour.start_time } }
     assert_redirected_to hour_url(@hour)
   end
 

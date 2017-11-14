@@ -5,7 +5,12 @@
 <table>
   <thead>
     <tr>
+      <th>Date</th>
+      <th>Start time</th>
+      <th>End time</th>
       <th>Description</th>
+      <th>User</th>
+      <th>Client</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +18,12 @@
   <tbody>
     <% @hours.each do |hour| %>
       <tr>
+        <td><%= hour.date %></td>
+        <td><%= hour.start_time.strftime('%H:%M') %></td>
+        <td><%= hour.end_time.strftime('%H:%M') %></td>
         <td><%= hour.description %></td>
+        <td><%= User.find(hour.user_id).name %></td>
+        <td><%= Client.find(hour.client_id).name %></td>
         <td><%= link_to 'Show', hour %></td>
         <td><%= link_to 'Edit', edit_hour_path(hour) %></td>
         <td><%= link_to 'Destroy', hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>

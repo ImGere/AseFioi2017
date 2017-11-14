@@ -1,4 +1,4 @@
 class Client < ApplicationRecord
-  has_many :hours
   belongs_to :user
+  has_many :hours
 end

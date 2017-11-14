@@ -12,8 +12,33 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :hour_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.time_select :start_time, id: :hour_start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.time_select :end_time, id: :hour_end_time %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :hour_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user %>
+    <%= form.collection_select :user_id, User.order(:id),:id,:email, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client %>
+    <%= form.collection_select :client_id, Client.order(:id),:id,:email, include_blank: true %>
   </div>
 
   <div class="actions">

@@ -10,11 +10,14 @@ class HoursController < ApplicationController
   # GET /hours/1
   # GET /hours/1.json
   def show
+
   end
 
   # GET /hours/new
   def new
     @hour = Hour.new
+    @users = User.find_each
+    @clients = Client.find_each
   end
 
   # GET /hours/1/edit
@@ -24,6 +27,8 @@ class HoursController < ApplicationController
   # POST /hours
   # POST /hours.json
   def create
+    @users = User.find_each
+    @clients = Client.find_each
     @hour = Hour.new(hour_params)
 
     respond_to do |format|
@@ -69,6 +74,6 @@ class HoursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hour_params
-      params.require(:hour).permit(:description)
+      params.require(:hour).permit(:date, :start_time, :end_time, :description, :user_id, :client_id)
     end
 end
