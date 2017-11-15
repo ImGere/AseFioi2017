@@ -40,6 +40,10 @@
     <%= form.label :client %>
     <%= form.collection_select :client_id, Client.order(:id),:id,:email, include_blank: true %>
   </div>
+  <div class="field">
+    <%= form.label :is_fatturata %>
+    <%= form.check_box :is_fatturata %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
