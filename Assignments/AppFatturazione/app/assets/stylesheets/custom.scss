@@ -26,6 +26,13 @@ textarea {
   }
 }
 
+a {
+  &:hover {
+    color: #444;
+    background-color: #000;
+  }
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,6 +73,7 @@ p {
   font-weight: bold;
   &:hover {
     color: #fff;
+    background-color: #222;
     text-decoration: none;
   }
 }
@@ -77,12 +85,6 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
-  a {
-    &:hover {
-      color: #444;
-      background-color: #fff;
-    }
-  }
   small {
     float: left;
   }
