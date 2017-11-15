@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/client', to: 'clients#index'
+  get '/client/new', to: 'clients#new'
+  post '/client/new', to: 'clients#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
