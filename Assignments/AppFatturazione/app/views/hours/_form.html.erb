@@ -32,13 +32,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :user %>
-    <%= form.collection_select :user_id, User.order(:id),:id,:email, include_blank: true %>
-  </div>
-
-  <div class="field">
     <%= form.label :client %>
-    <%= form.collection_select :client_id, Client.order(:id),:id,:email, include_blank: true %>
+    <%= form.collection_select :client_id, current_user.clients.order(:id),:id,:email, include_blank: true %>
   </div>
 
   <div class="actions">

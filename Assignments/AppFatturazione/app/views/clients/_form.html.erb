@@ -31,11 +31,6 @@
     <%= form.number_field :partita_iva, id: :client_partita_iva %>
   </div>
 
-  <div class="field">
-    <%= form.label :users %>
-    <%= form.collection_select :user_id, User.order(:id),:id,:email, include_blank: true %>
-  </div>
-
 
   <div class="actions">
     <%= form.submit %>
