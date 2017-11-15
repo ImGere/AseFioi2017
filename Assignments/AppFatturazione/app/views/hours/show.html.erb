@@ -29,5 +29,10 @@
   <%= Client.find(@hour.client_id).name %>
 </p>
 
+<p>
+  <strong>Fatturata?:</strong>
+  <%= @hour.is_fatturata %>
+</p>
+
 <%= link_to 'Edit', edit_hour_path(@hour) %> |
 <%= link_to 'Back', hours_path %>
