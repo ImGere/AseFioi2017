@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   get '/client', to: 'clients#index'
   get '/client/new', to: 'clients#new'
   post '/client/new', to: 'clients#create'
+  get '/user/:id/edit', to: 'users#edit'
+  put '/user/:id', to: 'users#update'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
