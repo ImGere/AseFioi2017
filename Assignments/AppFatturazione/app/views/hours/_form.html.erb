@@ -1,46 +1,41 @@
 <%= form_with(model: hour, local: true) do |form| %>
-  <% if hour.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
 
-      <ul>
-      <% hour.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <% if hour.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
+
+          <ul>
+          <% hour.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+
+
+      <%= form.label :date %>
+      <%= form.date_select :date, id: :hour_date%>
+
+      <%= form.label :start_time %>
+      <%= form.time_field :start_time, id: :hour_start_time%>
+
+      <%= form.label :end_time %>
+      <%= form.time_field :end_time, id: :hour_end_time %>
+
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :hour_description %>
+
+      <%= form.label :client%>
+      <%= form.collection_select :client_id, current_user.clients.order(:id), :id, :email, include_blank: true %>
+
+      <%= form.label :is_fatturata %>
+      <%= form.check_box :is_fatturata %>
+
+      <%= form.submit "Submit", class: "btn btn-primary"%>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :hour_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.time_select :start_time, id: :hour_start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.time_select :end_time, id: :hour_end_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :hour_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :client %>
-    <%= form.collection_select :client_id, current_user.clients.order(:id),:id,:email, include_blank: true %>
-  </div>
-  <div class="field">
-    <%= form.label :is_fatturata %>
-    <%= form.check_box :is_fatturata %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
