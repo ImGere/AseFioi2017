@@ -2,12 +2,12 @@
 
 <h1>Users</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Tarif</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Tarif</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td  scope="row"><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.tarif %></td>
         <td><%= link_to 'Show', user %></td>

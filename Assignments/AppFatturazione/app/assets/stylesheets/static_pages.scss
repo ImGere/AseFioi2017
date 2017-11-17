@@ -1,0 +1,15 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@media(min-width: 992px) {
+    .col-md-border {
+        &:not(:last-child) {
+            border-right: 1px solid #d7d7d7;
+        }
+
+        & + .col-md-border {
+            border-left: 1px solid #d7d7d7;
+            margin-left: -1px;
+        }
+    }
+}

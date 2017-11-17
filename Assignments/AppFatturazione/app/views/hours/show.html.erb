@@ -7,12 +7,12 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @hour.start_time %>
+  <%= @hour.start_time.strftime('%H:%M') %>
 </p>
 
 <p>
   <strong>End time:</strong>
-  <%= @hour.end_time %>
+  <%= @hour.end_time.strftime('%H:%M') %>
 </p>
 
 <p>

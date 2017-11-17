@@ -1,0 +1,30 @@
+<div class="center jumbotron">
+  <div class="container-fluid">
+    <h1>AppFatturazione</h1>
+    <br/>
+    <% if logged_in? %>
+    <p>
+      Cosa devi fare? Scegli se gestire i tuoi clienti o le tue ore!
+    </p>
+    <p>
+    <div class="row">
+      <div class="col-md-6 col-md-border">
+        <br/>
+        <%= link_to "Manage Clients", clients_path, class: "btn btn-lg btn-primary" %>
+      </div>
+      <div class="col-md-6 col-md-border">
+        <br/>
+        <%= link_to "Manage Hours", hours_path, class: "btn btn-lg btn-primary" %>
+      </div>
+    </div>
+    </p>
+    <% else %>
+    <div class="row">
+      <br/>
+      <%= link_to "Sign Up", signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+
+
+</div>

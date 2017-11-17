@@ -4,7 +4,7 @@ class HoursController < ApplicationController
   # GET /hours
   # GET /hours.json
   def index
-    @hours = Hour.all
+    @hours = Hour.where(user_id: current_user.id)
   end
 
   # GET /hours/1
@@ -16,8 +16,8 @@ class HoursController < ApplicationController
   # GET /hours/new
   def new
     @hour = Hour.new
-    @users = User.find_each
-    @clients = Client.find_each
+    @hour.user_id = current_user.id
+    @clients = Client.where(user_id: current_user.id)
   end
 
   # GET /hours/1/edit
@@ -27,9 +27,9 @@ class HoursController < ApplicationController
   # POST /hours
   # POST /hours.json
   def create
-    @users = User.find_each
-    @clients = Client.find_each
+    @clients = Client.find_by_user_id(params[:user_id])
     @hour = Hour.new(hour_params)
+    @hour.user_id = current_user.id
 
     respond_to do |format|
       if @hour.save

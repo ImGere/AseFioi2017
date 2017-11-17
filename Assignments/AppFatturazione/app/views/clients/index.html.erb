@@ -2,14 +2,14 @@
 
 <h1>Clients</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Codice fiscale</th>
-      <th>Email</th>
-      <th>Partita iva</th>
-      <th>User</th>
+      <th scope="col">Name</th>
+      <th scope="col">Codice fiscale</th>
+      <th scope="col">Email</th>
+      <th scope="col">Partita iva</th>
+      <th scope="col">User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
-        <td><%= client.name %></td>
+        <td  scope="row"><%= client.name %></td>
         <td><%= client.codice_fiscale %></td>
         <td><%= client.email %></td>
         <td><%= client.partita_iva %></td>
@@ -31,5 +31,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Client', new_client_path %>
+<div class="d-flex justify-content-xl-center">
+  <%= link_to "New client!", new_client_path, class: "btn btn-lg btn-primary" %>
+</div>
