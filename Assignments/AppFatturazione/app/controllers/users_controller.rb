@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def address
+    "#{user.street_name}, #{user.street_number}"
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -70,6 +74,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :tarif)
+      params.require(:user).permit(:name, :email, :password, :tarif, :street_name, :street_number, :city, :postal_code, :state)
     end
 end

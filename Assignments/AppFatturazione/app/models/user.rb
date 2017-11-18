@@ -15,5 +15,9 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  validates_presence_of :password_digest, :tarif
+  validates_presence_of :password_digest, :tarif, :street_name, :street_number, :city, :postal_code, :state
+
+  def address
+    "#{street_name}, #{street_number}"
+  end
 end

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   resources :hours
   resources :clients
   resources :users
+  resources :invoices
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
@@ -14,5 +16,7 @@ Rails.application.routes.draw do
   get '/client', to: 'clients#index'
   get '/client/new', to: 'clients#new'
   post '/client/new', to: 'clients#create'
+  get '/invoices/default', to: 'invoices#default'
+  post '/invoices/pdf', to: 'invoices#pdf'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
