@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Hour</th>
+      <th>id</th>
+      <th>Total amount</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +14,8 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.hour_id %></td>
+        <td><%= invoice.id %></td>
+        <td><%= invoice.total_amount %></td>
         <td><%= link_to 'Show', invoice %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
