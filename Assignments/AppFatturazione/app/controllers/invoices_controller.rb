@@ -16,7 +16,7 @@ class InvoicesController < ApplicationController
   end
 
   def pdf
-    @new_invoice = Invoice.new
+    @new_invoice = Invoice.create
     params[:hour_ids].each do |value|
       @hour = Hour.find_by id: value
       @user = User.find_by id: @hour.user_id
@@ -27,7 +27,7 @@ class InvoicesController < ApplicationController
       @hour.save if @hour.valid?
       @new_invoice.save if @new_invoice.valid?
     end
-    @hours_to_bill = Hour.find_by (invoice_id: @new_invoice.id)
+    @hours_to_bill = Hour.where(invoice_id: @new_invoice.id)
   end
 
   # GET /invoices/new

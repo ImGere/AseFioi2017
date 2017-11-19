@@ -20,8 +20,9 @@
 
   <tbody>
     <% @hours.each do |hour| %>
+    <% hour.is_fatturata = true if hour.invoice_id != nil %>
       <tr>
-        <td scope="row"><%= check_box_tag "hour_ids[]", hour.id %></td>
+        <td scope="row"><%= check_box_tag "hour_ids[]", hour.id if (!hour.is_fatturata)%></td>
         <td><%= hour.date %></td>
         <td><%= hour.start_time.strftime('%H:%M') %></td>
         <td><%= hour.end_time.strftime('%H:%M') %></td>

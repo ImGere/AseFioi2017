@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html>
 <head>
@@ -113,9 +111,9 @@
                             </td>
 
                             <td>
-                                Invoice #: <%= new_invoice.id %><br>
-                                Created: <%= new_invoice.created_at.select_date %><br>
-                                Due: <%= new_invoice.created_at.select_date + 15 %>
+                                Invoice #: <%= @new_invoice.id %><br>
+                                Created: <%= @new_invoice.created_at.to_date %><br>
+                                Due: <%= @new_invoice.created_at.to_date + 15 %>
                             </td>
                         </tr>
                     </table>
@@ -129,7 +127,7 @@
                             <td>
                                 <%= @user.name %><br>
                                 <%= @user.address %><br>
-                                <%  concat "#{user.city}, #{user.state} #{user.postal_code}" %>
+                                <%  concat "#{@user.city}, #{@user.state} #{@user.postal_code}" %>
                             </td>
 
                             <td>
@@ -144,49 +142,29 @@
 
             <tr class="heading">
                 <td>
-                    Item
+                    Hours
                 </td>
 
                 <td>
                     Price
                 </td>
             </tr>
-
+            <% @hours_to_bill.each do |hour| %>
             <tr class="item">
                 <td>
-                    Website design
+                    <%= hour.description %>
                 </td>
 
                 <td>
-                    $300.00
+                    € <%= (hour.end_time - hour.start_time).to_i * ((User.find_by id: hour.user_id).tarif/3600)%>
                 </td>
             </tr>
-
-            <tr class="item">
-                <td>
-                    Hosting (3 months)
-                </td>
-
-                <td>
-                    $75.00
-                </td>
-            </tr>
-
-            <tr class="item last">
-                <td>
-                    Domain name (1 year)
-                </td>
-
-                <td>
-                    $10.00
-                </td>
-            </tr>
-
+            <% end %>
             <tr class="total">
                 <td></td>
 
                 <td>
-                   Total: $385.00
+                   Total: € <%= @new_invoice.total_amount %>
                 </td>
             </tr>
         </table>
