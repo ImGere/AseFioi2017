@@ -5,14 +5,13 @@
   <% if hour.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
-
-      <ul>
-      <% hour.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% hour.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
     <%= form.label :date %>
     <%= form.date_select :date, id: :hour_date %>

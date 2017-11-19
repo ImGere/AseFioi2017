@@ -1,4 +1,5 @@
 class HoursController < ApplicationController
+  before_action :require_login
   before_action :set_hour, only: [:show, :edit, :update, :destroy]
 
   # GET /hours
@@ -16,9 +17,8 @@ class HoursController < ApplicationController
 
   # GET /hours/new
   def new
-    @hour = Hour.new
-    @hour.user_id = current_user.id
-    @clients = Client.where(user_id: current_user.id)
+    @hour = Hour.new(user: current_user)
+    @clients = Client.where(user: current_user)
   end
 
   # GET /hours/1/edit

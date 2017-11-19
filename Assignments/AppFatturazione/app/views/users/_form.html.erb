@@ -12,7 +12,7 @@
           <% user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
-          </ul>
+        </ul>
         </div>
       <% end %>
 
@@ -47,7 +47,7 @@
       <%= form.label :password_confirmation %>
       <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
 
-      <%= form.submit "Create account", class: "btn btn-primary"%>
+      <%= form.submit "Submit", class: "btn btn-primary"%>
 
     </div>
   </div>
