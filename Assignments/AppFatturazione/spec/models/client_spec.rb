@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Client, type: :model do
-  subject= described_class.new(name:"foo", codice_fiscale:"dsfsdfasf", email:"foo@bar.com", partita_iva: 12, user: User.first)
+
+  #subject= described_class.new(name:"foo", codice_fiscale:"dsfsdfasf", email:"foo@bar.com", partita_iva: 12, user: User.new)
+  subject= build(:client)
   describe "validations" do
     it "is valid with valid attributes" do
       expect(subject).to be_valid

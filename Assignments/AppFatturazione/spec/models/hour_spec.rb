@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Hour, type: :model do
-  subject=described_class.new(date:Date.today, start_time:Time.now, end_time:Time.now, description:"this", user:User.first, client:Client.first, is_fatturata:false)
-
+  #subject=described_class.new(date:Date.today, start_time:Time.now, end_time:Time.now, description:"this", user:, client:, is_fatturata:false)
+  subject=build(:hour)
   describe "Validations" do
     it "is valid with valid attributes" do
       expect(subject).to be_valid
