@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116081457) do
+ActiveRecord::Schema.define(version: 20171117194146) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20171116081457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "street_name"
+    t.integer "street_number"
+    t.integer "postal_code"
+    t.string "city"
+    t.string "state"
   end
 
   create_table "hours", force: :cascade do |t|
@@ -31,7 +36,14 @@ ActiveRecord::Schema.define(version: 20171116081457) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "client_id"
-    t.boolean "is_fatturata"
+    t.boolean "is_fatturata", default: false
+    t.integer "invoice_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "total_amount", default: 0.0
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,6 +53,11 @@ ActiveRecord::Schema.define(version: 20171116081457) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.float "tarif"
+    t.string "street_name"
+    t.integer "street_number"
+    t.integer "postal_code"
+    t.string "city"
+    t.string "state"
   end
 
 end

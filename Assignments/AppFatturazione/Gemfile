@@ -27,6 +27,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Added pdf creator
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'  
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -46,6 +49,12 @@ group :development, :test do
   gem 'ffaker'
   gem 'cucumber-rails', require: false
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.5'
+end
+
+group :test, :development do
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do

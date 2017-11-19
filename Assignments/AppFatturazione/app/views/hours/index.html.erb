@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Hours</h1>
-
+<%= form_tag(invoices_pdf_path, method: :post) %>
+<% @new_invoice = Invoice.create %>
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Seleziona</th>
       <th>Date</th>
       <th>Start time</th>
       <th>End time</th>
@@ -19,7 +21,8 @@
   <tbody>
     <% @hours.each do |hour| %>
       <tr>
-        <td  scope="row"><%= hour.date %></td>
+        <td scope="row"><%= check_box_tag "hour_ids[]", hour.id %></td>
+        <td><%= hour.date %></td>
         <td><%= hour.start_time.strftime('%H:%M') %></td>
         <td><%= hour.end_time.strftime('%H:%M') %></td>
         <td><%= hour.description %></td>
@@ -33,7 +36,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Hour', new_hour_path %>
+<%= link_to 'New Hour', new_hour_path, class: "btn btn-primary" %>
+<br><br>
+<%= submit_tag "Create bill", class: "btn btn-primary" %>

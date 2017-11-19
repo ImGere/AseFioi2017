@@ -14,21 +14,33 @@
         </div>
       <% end %>
 
+  <%= form.label :name %>
+  <%= form.text_field :name, id: :client_name %>
 
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :client_name %>
+  <%= form.label :codice_fiscale %>
+  <%= form.text_field :codice_fiscale, id: :client_codice_fiscale %>
 
-      <%= form.label :codice_fiscale %>
-      <%= form.text_field :codice_fiscale, id: :client_codice_fiscale %>
+  <%= form.label :email %>
+  <%= form.text_field :email, id: :client_email %>
 
-      <%= form.label :email %>
-      <%= form.text_field :email, id: :client_email %>
+  <%= form.label :partita_iva %>
+  <%= form.number_field :partita_iva, id: :client_partita_iva %>
 
-      <%= form.label :partita_iva %>
-      <%= form.number_field :partita_iva, id: :client_partita_iva %>
+  <%= form.label :street_name %>
+  <%= form.text_field :street_name, id: :user_street_name %>
 
-      <%= form.submit "Submit", class: "btn btn-primary"%>
+  <%= form.label :street_number %>
+  <%= form.number_field :street_number, id: :user_street_number %>
 
-    </div>
-  </div>
+  <%= form.label :city %>
+  <%= form.text_field :city, id: :user_city %>
+
+  <%= form.label :postal_code %>
+  <%= form.number_field :postal_code, id: :user_postal_code %>
+
+  <%= form.label :state %>
+  <%= form.text_field :state, id: :user_state %>
+
+
+  <%= form.submit "Create client", class: "btn btn-primary"%>
 <% end %>
