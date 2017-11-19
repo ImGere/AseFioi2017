@@ -10,4 +10,8 @@ class Client < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates_presence_of :codice_fiscale, :partita_iva, :user_id, :street_name, :street_number, :city, :postal_code, :state
+
+  def address
+    "#{street_name}, #{street_number}. #{city}, #{postal_code} #{state}"
+  end
 end

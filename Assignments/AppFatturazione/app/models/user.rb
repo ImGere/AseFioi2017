@@ -18,6 +18,6 @@ class User < ApplicationRecord
   validates_presence_of :password_digest, :tarif, :street_name, :street_number, :city, :postal_code, :state
 
   def address
-    "#{street_name}, #{street_number}"
+    "#{street_name}, #{street_number}. #{city}, #{postal_code} #{state}"
   end
 end
