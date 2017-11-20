@@ -4,7 +4,7 @@ end
 When("I click on Sign up") do
   click_on "Sign Up"
 end
-And("I fill in the form with valid data") do
+And("I fill in the signup form with valid data") do
   @name='Paolo'
   @email=  ('a'..'z').to_a.shuffle.join + "@gmail.com"
   @tarif=12

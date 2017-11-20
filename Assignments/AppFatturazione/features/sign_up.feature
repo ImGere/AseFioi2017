@@ -5,7 +5,7 @@ Feature: Sign Up
   Scenario: Signup successful
     Given I am on the home page
     When I click on Sign up
-    And I fill in the form with valid data
+    And I fill in the signup form with valid data
     Then I should create my account
 
   Scenario: error when leaving name field blank
