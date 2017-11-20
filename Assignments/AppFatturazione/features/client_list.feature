@@ -7,11 +7,6 @@ Feature: Client List
     And I am logged in
 
   Scenario: The client list is not empty
-    Given that I have clients
+    Given I have clients
     When I visit the clients page
     Then I should see my client list
-
-  Scenario: The client list is empty
-    Given that I don't have any clients
-    When I visit the clients page
-    Then I should see an empty list
