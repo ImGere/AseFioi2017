@@ -4,9 +4,9 @@ Given("I am on my client list") do
 end
 And("I click on New Client") do
   click_on "New client!"
+  expect(page).to have_content("New Client")
 end
 When("I fill in the add new client form with valid data") do
-  expect(page).to have_content("New Client")
   fill_in 'Name', with: ('a'..'z').to_a.shuffle[0..9].join
   fill_in 'Codice fiscale', with: ('a'..'z').to_a.shuffle.join
   fill_in 'Email', with: ('a'..'z').to_a.shuffle.join + "@gmail.com"

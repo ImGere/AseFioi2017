@@ -1,6 +1,6 @@
 Feature: Add new client
   As a user
-  I want to be able to see a list of all my clients
+  I want to be able to add new clients
 
   Background:
     Given I have an account
