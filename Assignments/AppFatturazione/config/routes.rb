@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  get '/client', to: 'clients#index'
-  get '/client/new', to: 'clients#new'
-  post '/client/new', to: 'clients#create'
+  get '/clients/new', to: 'clients#new'
+  post '/clients/new', to: 'clients#create'
   get '/invoices/default', to: 'invoices#default'
   post '/invoices/pdf', to: 'invoices#pdf'
+
 
   resources :hours
   resources :clients

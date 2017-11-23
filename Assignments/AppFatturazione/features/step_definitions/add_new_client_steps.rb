@@ -2,9 +2,8 @@ Given("I am on my client list") do
   click_on "Clients"
   click_on "Client List"
 end
-And("I click on New Client") do
-  click_on "New client!"
-  expect(page).to have_content("New Client")
+And("I click on {string}") do |string|
+  click_on string
 end
 When("I fill in the add new client form with valid data") do
   fill_in 'Name', with: ('a'..'z').to_a.shuffle[0..9].join
@@ -16,7 +15,6 @@ When("I fill in the add new client form with valid data") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 Then("I should see the new client at the bottom of the client list") do
   client= Client.last
@@ -33,7 +31,6 @@ When("I fill in the add new client form with a blank name") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank codice fiscale") do
@@ -46,7 +43,6 @@ When("I fill in the add new client form with a blank codice fiscale") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank email") do
@@ -59,7 +55,6 @@ When("I fill in the add new client form with a blank email") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank partita iva") do
@@ -72,7 +67,6 @@ When("I fill in the add new client form with a blank partita iva") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank street name") do
@@ -85,7 +79,6 @@ When("I fill in the add new client form with a blank street name") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank street number") do
@@ -98,7 +91,6 @@ When("I fill in the add new client form with a blank street number") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank city") do
@@ -111,7 +103,6 @@ When("I fill in the add new client form with a blank city") do
   fill_in 'City', with: ''
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank postal code") do
@@ -124,7 +115,6 @@ When("I fill in the add new client form with a blank postal code") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: nil
   fill_in 'State', with: 'Borino'
-  click_on "Create client"
 end
 
 When("I fill in the add new client form with a blank state") do
@@ -137,5 +127,4 @@ When("I fill in the add new client form with a blank state") do
   fill_in 'City', with: 'Borino'
   fill_in 'Postal code', with: 32032
   fill_in 'State', with: ''
-  click_on "Create client"
 end
