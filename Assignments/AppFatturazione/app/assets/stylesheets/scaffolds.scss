@@ -21,8 +21,9 @@ pre {
 
 a {
   &:hover {
-    color: #444;
-    background-color: #fff;
+    color: #dc3545;
+    text-decoration: none;
+    background-color: transparent;
   }
 }
 
@@ -45,9 +46,8 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  padding: 2px 10px;
+  background-color: #dc3545;
 }
 
 #error_explanation {

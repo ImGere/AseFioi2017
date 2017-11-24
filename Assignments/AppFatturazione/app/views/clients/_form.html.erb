@@ -15,32 +15,32 @@
       <% end %>
 
   <%= form.label :name %>
-  <%= form.text_field :name, id: :client_name %>
+  <%= form.text_field :name, id: :client_name, class: 'form-control' %>
 
   <%= form.label :codice_fiscale %>
-  <%= form.text_field :codice_fiscale, id: :client_codice_fiscale %>
+  <%= form.text_field :codice_fiscale, id: :client_codice_fiscale, class: 'form-control' %>
 
   <%= form.label :email %>
-  <%= form.text_field :email, id: :client_email %>
+  <%= form.text_field :email, id: :client_email, class: 'form-control' %>
 
   <%= form.label :partita_iva %>
-  <%= form.number_field :partita_iva, id: :client_partita_iva %>
+  <%= form.number_field :partita_iva, id: :client_partita_iva, class: 'form-control' %>
 
   <%= form.label :street_name %>
-  <%= form.text_field :street_name, id: :user_street_name %>
+  <%= form.text_field :street_name, id: :user_street_name, class: 'form-control' %>
 
   <%= form.label :street_number %>
-  <%= form.number_field :street_number, id: :user_street_number %>
+  <%= form.number_field :street_number, id: :user_street_number, class: 'form-control' %>
 
   <%= form.label :city %>
-  <%= form.text_field :city, id: :user_city %>
+  <%= form.text_field :city, id: :user_city, class: 'form-control' %>
 
   <%= form.label :postal_code %>
-  <%= form.number_field :postal_code, id: :user_postal_code %>
+  <%= form.number_field :postal_code, id: :user_postal_code, class: 'form-control' %>
 
   <%= form.label :state %>
-  <%= form.text_field :state, id: :user_state %>
-
-
-  <%= form.submit "Create client", class: "btn btn-primary"%>
+  <%= form.text_field :state, id: :user_state, class: 'form-control' %>
+  <br/>
+  <br/>
+  <%= form.submit "Create client", class: "btn btn-primary" %>
 <% end %>
