@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @client.name %>
@@ -28,5 +26,8 @@
 <% @hours = Hour.where(client_id: @client.id) %>
 <%= render 'hours/hour_list' %>
 
+<%= link_to 'New Hour', new_hour_path(:client_base_id => @client.id), class: "btn btn-primary" %>
+<%= link_to 'New Client', new_client_path, class: "btn btn-primary float-right" %>
+<br/><br/>
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

@@ -2,47 +2,62 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <% if client.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+    <%= errors_for(@client) %>
 
-          <ul>
-          <% client.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-  <%= form.label :name %>
-  <%= form.text_field :name, id: :client_name, class: 'form-control' %>
-
-  <%= form.label :codice_fiscale %>
-  <%= form.text_field :codice_fiscale, id: :client_codice_fiscale, class: 'form-control' %>
-
-  <%= form.label :email %>
-  <%= form.text_field :email, id: :client_email, class: 'form-control' %>
-
-  <%= form.label :partita_iva %>
-  <%= form.number_field :partita_iva, id: :client_partita_iva, class: 'form-control' %>
-
-  <%= form.label :street_name %>
-
-  <%= form.text_field :street_name, id: :user_street_name, class: 'form-control' %>
-
-  <%= form.label :street_number %>
-  <%= form.number_field :street_number, id: :user_street_number, class: 'form-control' %>
-
-  <%= form.label :city %>
-  <%= form.text_field :city, id: :user_city, class: 'form-control' %>
-
-  <%= form.label :postal_code %>
-  <%= form.number_field :postal_code, id: :user_postal_code, class: 'form-control' %>
-
-  <%= form.label :state %>
-  <%= form.text_field :state, id: :user_state, class: 'form-control' %>
-  <br/>
-  <br/>
+    <div class="form-group row">
+        <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, id: :client_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :codice_fiscale, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :codice_fiscale, id: :client_codice_fiscale, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :email, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :email, id: :client_email, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :partita_iva, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.number_field :partita_iva, id: :client_partita_iva, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :street_name, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :street_name, id: :client_street_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :street_number, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.number_field :street_number, id: :client_street_number, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :city, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :city, id: :client_city, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :postal_code, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.number_field :postal_code, id: :client_postal_code, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :state, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :state, id: :client_state, class: 'form-control' %>
+      </div>
+    </div>
   <%= form.submit "Create client", class: "btn btn-primary" %>
 
 <% end %>

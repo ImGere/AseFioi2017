@@ -1,7 +1,13 @@
-<%= form_tag(invoices_pdf_path, method: :post, id: "hour_to_bill_form") %>
-<table class="table">
-  <thead>
-    <tr>
+
+<% if (params.has_key?(:error_message)) %>
+  <div class='alert alert-warning' id="error_message"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
+<% end %>
+
+<%= form_tag(invoices_pdf_path, method: :post, id: "bill_form", :onsubmit => "ValidateForm();", :html => { :name => 'bill_form' }) %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
       <th scope="col">Select</th>
       <th scope="col">Date</th>
       <th scope="col">Start time</th>
@@ -30,7 +36,5 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Hour', new_hour_path(:client_base_id => @client.id), class: "btn btn-primary" %>
-<%= link_to 'New Client', new_client_path, class: "btn btn-primary float-right" %>
-<br><br>
 <%= submit_tag "Create bill", class: "btn btn-primary", style: "float=left" %>
+<br/><br/>

@@ -123,43 +123,30 @@ aside {
   }
 }
 /* invoices */
-th, tbody{
-  text-align: center;
-}
 
 /* forms */
 
-textarea, select, .uneditable-input {
+select {
   border: 1px solid #bbb;
   width: 48%;
-  margin-bottom: 15px;
+  margin-bottom: 15px!important;
   @include box_sizing;
 }
 
+.clients_class{
+  width: 100%!important;
+}
 
 
-input {
+input, textarea, .uneditable-input {
   height: auto !important;
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 15px!important;
   @include box_sizing;
 }
 
-#error_explanation {
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
-}
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
-}
 
 /* toggle button navbar */
 .icon-bar
