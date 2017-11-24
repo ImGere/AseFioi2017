@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   resources :hours
   resources :clients
   resources :invoices
-  resources :users, except: :new
+  resources :users, except: [:new, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
