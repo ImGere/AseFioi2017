@@ -27,6 +27,7 @@
   <%= form.number_field :partita_iva, id: :client_partita_iva, class: 'form-control' %>
 
   <%= form.label :street_name %>
+
   <%= form.text_field :street_name, id: :user_street_name, class: 'form-control' %>
 
   <%= form.label :street_number %>
@@ -43,4 +44,5 @@
   <br/>
   <br/>
   <%= form.submit "Create client", class: "btn btn-primary" %>
+
 <% end %>
