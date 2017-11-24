@@ -23,7 +23,7 @@ When("I leave the email field blank") do
   fill_in 'Password', with: @password
 end
 Then("I should get an error message") do
-  expect(page).to have_css('#error_explanation')
+  expect(page).to have_content("Invalid email/password combination")
 end
 
 When("I leave the password field blank") do
