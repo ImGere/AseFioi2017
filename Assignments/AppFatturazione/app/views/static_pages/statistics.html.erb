@@ -1,0 +1,69 @@
+<%
+@hours = Hour.where(user_id: current_user.id).to_a
+@clients = Client.where(user_id: current_user.id).to_a
+invoices_hid = @hours.uniq.pluck(:invoice_id)
+@invoices = Invoice.where(id: invoices_hid)
+%>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-md-12">
+      <div class="well">
+        <h4>Dashboard</h4>
+        <p>Check here you statistics</p>
+      </div>
+      <div class="panel-group">
+        <div class="col-md-8">
+          <div class="well">
+            <h4>Clients</h4>
+            <p><%
+                if !@clients.blank?
+                  concat "You have #{@clients.length} clients:"
+                  concat render 'static_pages/clients_list'
+                else
+                  concat "There are no clients for #{current_user.name}"
+                end
+              %>
+              </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="well">
+            <h4>Hours</h4>
+            <p><%
+                  if !@hours.blank?
+                    hf = Hour.where(user_id: current_user.id, is_fatturata: true)
+                    time = 0
+                    @hours.each do |hour|
+                      time += (hour.end_time - hour.start_time).to_f
+                    end
+                    time /= 3600
+                    concat "You have a total of #{@hours.length} saved sessions, of which #{hf.length} are billed, for a total of #{time} effective hours."
+                  else
+                    concat "There are no hours for #{current_user.name}."
+                  end
+                %></p>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="well">
+            <h4>Invoices</h4>
+            <p><%
+                  if !@invoices.blank?
+                    concat render 'static_pages/invoices_list'
+                  else
+                    concat "There are no invoices for #{current_user.name}."
+                  end
+                %></p>
+          </div>
+      </div>
+        <div class="col-md-12">
+          <div class="well">
+            <h4>Stats</h4>
+            <p>Here there will be the daily/monthly stats</p>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>

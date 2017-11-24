@@ -1,27 +1,38 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Invoices</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Hour</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @invoices.each do |invoice| %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= invoice.hour_id %></td>
-        <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>id</th>
+        <th>Total amount</th>
+        <th>Client name</th>
+        <th>Hours</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Invoice', new_invoice_path %>
+    </thead>
+    <tbody>
+      <% @invoices.each do |invoice| %>
+      <%
+        @hours = Hour.where(invoice_id: invoice.id).to_a
+        if !@hours.blank?
+          @client = Client.find_by id: @hours.first.client_id
+        end
+       %>
+        <tr>
+            <td><%= invoice.id %></td>
+            <td>€ <%= invoice.total_amount %></td>
+            <td><%= @client.name if !@client.blank?%></td>
+            <td>
+              <% @hours.each do |hour| %>
+                <% concat simple_format hour.description %>
+              <% end %>
+            </td>
+          <td><%= link_to 'Show', invoice %></td>
+          <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+          <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

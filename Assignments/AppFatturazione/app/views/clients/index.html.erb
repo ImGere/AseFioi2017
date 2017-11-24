@@ -2,35 +2,35 @@
 
 <h1>Clients</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Codice fiscale</th>
-      <th scope="col">Email</th>
-      <th scope="col">Partita iva</th>
-      <th scope="col">Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
 
-  <tbody>
-    <% @clients.each do |client| %>
       <tr>
-        <td  scope="row"><%= client.name %></td>
-        <td><%= client.codice_fiscale %></td>
-        <td><%= client.email %></td>
-        <td><%= client.partita_iva %></td>
-        <td><%= client.address %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">Name</th>
+        <th scope="col">Codice fiscale</th>
+        <th scope="col">Email</th>
+        <th scope="col">Partita iva</th>
+        <th scope="col">Address</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<div class="d-flex justify-content-xl-center">
-  <%= link_to "New Client", clients_new_path, class: "btn btn-lg btn-primary" %>
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td  scope="row"><%= client.name %></td>
+          <td><%= client.codice_fiscale %></td>
+          <td><%= client.email %></td>
+          <td><%= client.partita_iva %></td>
+          <td><%= client.address %></td>
+          <td><%= link_to 'Show', client %></td>
+          <td><%= link_to 'Edit', edit_client_path(client) %></td>
+          <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+<%= link_to 'New Hour', new_hour_path, class: "btn btn-primary" %>
+<%= link_to 'New Client', new_client_path, class: "btn btn-primary float-right" %>

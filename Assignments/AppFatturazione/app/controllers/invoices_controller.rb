@@ -1,4 +1,5 @@
 class InvoicesController < ApplicationController
+  before_action :require_login
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
   # GET /invoices
@@ -16,23 +17,12 @@ class InvoicesController < ApplicationController
   end
 
   def pdf
-    @new_invoice = Invoice.create
-    params[:hour_ids].each do |value|
-      @hour = Hour.find_by id: value
-      @user = User.find_by id: @hour.user_id
-      @client = Client.find_by id: @hour.client_id
-      @hour.invoice_id = @new_invoice.id
-      @hour.is_fatturata = true
-      @new_invoice.total_amount = @new_invoice.total_amount + (@hour.end_time - @hour.start_time).to_i * (@user.tarif/3600)
-      @hour.save if @hour.valid?
-      @new_invoice.save if @new_invoice.valid?
-    end
-    @hours_to_bill = Hour.where(invoice_id: @new_invoice.id)
+
   end
 
   # GET /invoices/new
   def new
-    @invoice = Invoice.new
+    @invoice = Invoice.new(user: current_user)
   end
 
   # GET /invoices/1/edit
@@ -87,6 +77,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:id, :total_amount)
+      params.require(:invoice).permit(:id, :total_amount, :user_id, :client_id)
     end
 end

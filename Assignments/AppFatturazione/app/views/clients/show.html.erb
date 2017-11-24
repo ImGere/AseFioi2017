@@ -25,5 +25,8 @@
   <%= User.find(@client.user_id).name %>
 </p>
 
+<% @hours = Hour.where(client_id: @client.id) %>
+<%= render 'hours/hour_list' %>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
