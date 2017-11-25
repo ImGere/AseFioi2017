@@ -1,5 +1,5 @@
 Given("I have hours") do
-  @client=FactoryBot.create(:client, user: @user)
+  #@client=FactoryBot.create(:client, user: @user)
   @hour=FactoryBot.create(:hour, user:@user, client:@client)
 end
 When("I visit the hours page") do

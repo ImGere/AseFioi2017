@@ -6,6 +6,7 @@ Feature: Hour List
   Background:
     Given I have an account
     And I am logged in
+    And I have clients
 
   Scenario: The hour list is not empty
     Given I have hours

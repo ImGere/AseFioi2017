@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :client do
-    name "boh"
-    email "boh@gmail.com"
+    name "TestClient"
+    email "test2@test.com"
     codice_fiscale "sdfasfsfa"
     partita_iva 123112
     user

@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-
+  before_action :require_login, only: :statistics
   def home
   end
 
@@ -12,9 +12,11 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def statistic
-    @hours = Hour.find_each(user_id: current_user.id)
+  def statistics
+    @hours = Hour.where(user_id: current_user.id).to_a
     @clients = Client.where(user_id: current_user.id).to_a
-    @invoices = Invoice.all
+    #@invoices = Invoice.all
+    invoices_hid = @hours.uniq.pluck(:invoice_id)
+    @invoices = Invoice.where(id: invoices_hid)
   end
 end
