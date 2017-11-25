@@ -2,51 +2,68 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+      <%= errors_for(@user) %>
 
-      <% if user.errors.any? %>
-        <div id="error_explanation">
-          <div class="alert alert-danger">
-            The form contains <%= pluralize(user.errors.count, "error") %>.
-          </div>
-          <ul>
-          <% user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+      <div class="form-group row">
+          <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.text_field :name, id: :user_name, class: 'form-control' %>
         </div>
-      <% end %>
-
-
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :user_name %>
-
-      <%= form.label :email %>
-      <%= form.text_field :email, id: :user_email %>
-
-      <%= form.label :tarif %>
-      <%= form.number_field :tarif, id: :user_tarif %>
-
-      <%= form.label :street_name %>
-      <%= form.text_field :street_name, id: :user_street_name %>
-
-      <%= form.label :street_number %>
-      <%= form.number_field :street_number, id: :user_street_number %>
-
-      <%= form.label :city %>
-      <%= form.text_field :city, id: :user_city %>
-
-      <%= form.label :postal_code %>
-      <%= form.number_field :postal_code, id: :user_postal_code %>
-
-      <%= form.label :state %>
-      <%= form.text_field :state, id: :user_state %>
-
-      <%= form.label :password %>
-      <%= form.password_field :password, id: :user_password %>
-
-      <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
-
+      </div>
+      <div class="form-group row">
+          <%= form.label :email, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.text_field :email, id: :user_email, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :tarif, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.number_field :tarif, id: :user_tarif, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :street_name, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.text_field :street_name, id: :user_street_name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :street_number, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.number_field :street_number, id: :user_street_number, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :city, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.text_field :city, id: :user_city, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :postal_code, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.number_field :postal_code, id: :user_postal_code, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :state, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.text_field :state, id: :user_state, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :password, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.password_field :password, id: :user_password, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group row">
+          <%= form.label :password_confirmation, class: 'col-sm-2 col-form-label' %>
+        <div class="col-sm-10">
+          <%= form.password_field :password_confirmation, id: :user_password_confirmation, class: 'form-control' %>
+        </div>
+      </div>
       <%= form.submit "Submit", class: "btn btn-primary"%>
 
     </div>
