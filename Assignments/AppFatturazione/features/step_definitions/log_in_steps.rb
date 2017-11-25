@@ -13,7 +13,7 @@ When("I fill in the login form with valid data") do
   fill_in 'Password', with: @password
 end
 Then("I should be able to access my account") do
-  click_on "Account"
+  click_on "#{@user.name}"
   click_on "Profile"
   expect(page).to have_content(@user.name)
 end
