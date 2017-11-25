@@ -15,7 +15,6 @@ class StaticPagesController < ApplicationController
   def statistics
     @hours = Hour.where(user_id: current_user.id).to_a
     @clients = Client.where(user_id: current_user.id).to_a
-    #@invoices = Invoice.all
     invoices_hid = @hours.uniq.pluck(:invoice_id)
     @invoices = Invoice.where(id: invoices_hid)
   end

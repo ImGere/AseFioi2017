@@ -19,5 +19,12 @@ Rails.application.routes.draw do
   resources :clients
   resources :invoices
   resources :users, except: [:new, :index]
+
+  # charts
+  namespace :charts do
+    get 'total_hours'
+    get 'total_invoices_amount_per_day'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

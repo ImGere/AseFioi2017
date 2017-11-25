@@ -1,0 +1,4 @@
+
+<h2>Total amount billed: € <%= @invoices.pluck(:total_amount).reduce(:+) %><br>
+<small>[The graph is grouped by invocie id]</small></h2>
+<%= line_chart charts_total_invoices_amount_per_day_path, xtitle: "Invoice ID", ytitle: "Invoice Amount" %>
