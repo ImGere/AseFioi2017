@@ -1,6 +1,6 @@
 
 <% if (params.has_key?(:error_message)) %>
-  <div class='alert alert-warning' id="error_message"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
+  <div class='alert alert-warning' id="error_message" onclick="this.remove()"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
 <% end %>
 
 <%= form_tag(invoices_pdf_path, method: :post, id: "bill_form", :onsubmit => "ValidateForm();", :html => { :name => 'bill_form' }) %>

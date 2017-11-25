@@ -12,9 +12,6 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <% if (params.has_key?(:log_out_message)) %>
-        <div class='alert alert-success' id="log_out_message"><strong>Success!</strong> <%= params[:log_out_message].to_s %> </div>
-      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <% if (params.has_key?(:error_message)) %>
-      <div class='alert alert-warning' id="error_message"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
+      <div class='alert alert-warning' id="error_message" onclick="this.remove()"><strong>Warning!</strong> <%= params[:error_message].to_s %> </div>
     <% end %>
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.label :email %>
