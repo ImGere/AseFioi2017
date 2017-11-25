@@ -47,6 +47,7 @@ div {
 
 .field_with_errors {
   color: #d9534f;
+  @extend .has-error;
 }
 
 #error_explanation {
