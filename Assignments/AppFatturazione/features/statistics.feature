@@ -31,3 +31,8 @@ Feature: Statistics
     Then I should see an empty "invoices" list message
 
   Scenario: I have created at least one invoice
+    Given I have clients
+    And I have hours
+    And I have billed at least one invoice
+    When I click on "Statistics"
+    Then I should see the information about the invoices displayed on the page

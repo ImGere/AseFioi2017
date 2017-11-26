@@ -1,7 +1,7 @@
 class Hour < ApplicationRecord
   belongs_to :client
   belongs_to :user
-  belongs_to :invoices, optional: true
+  belongs_to :invoice, optional: true
 
   validates_presence_of :date, :start_time, :end_time, :description, :user_id, :client_id
   validate :start_must_be_before_end_time
