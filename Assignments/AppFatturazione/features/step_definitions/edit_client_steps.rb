@@ -1,5 +1,5 @@
-When("I change some information about the client") do
-  @new_street_name="some street"
+When("I change some information about {string}") do |string|
+  @new_street_name= string
   fill_in 'Street name', with: @new_street_name
 end
 Then("My client should have the new information") do

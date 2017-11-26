@@ -10,7 +10,7 @@ Feature: Edit Clients
   Scenario: Edit Successful
     Given I am on my client list
     And I click on "Edit"
-    When I change some information about the client
+    When I change some information about "the client"
     And I click on "Submit"
     Then My client should have the new information
 
