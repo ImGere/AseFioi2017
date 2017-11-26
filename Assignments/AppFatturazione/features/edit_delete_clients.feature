@@ -1,6 +1,6 @@
-Feature: Edit Clients
+Feature: Edit and Delete Clients
   As a user
-  I want to be able to edit my clients information
+  I want to be able to edit or delete my clients information
 
   Background:
     Given I have an account
@@ -27,3 +27,9 @@ Feature: Edit Clients
     When I change a field to blank
     And I click on "Submit"
     Then I should see an error message
+
+  Scenario: Delete a client
+    Given I am on my client list
+    When I click on "Destroy"
+    Then I should not see that client on my client list
+    And All the hours associated to it should be destroyed
