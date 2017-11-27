@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :hours
   has_many :clients
 
+  attr_accessor :password_confirmation
 
   before_save { email.downcase! }
   validates :name,  presence: true, length: { maximum: 50 }
@@ -16,6 +17,7 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  validates_confirmation_of :password
   validates_presence_of :password_digest, :tarif, :street_name, :street_number, :city, :postal_code, :state
 
   def address
