@@ -30,6 +30,6 @@ Feature: Edit and Delete Clients
 
   Scenario: Delete a client
     Given I am on my client list
-    When I click on "Destroy"
+    When I destroy my client
     Then I should not see that client on my client list
     And All the hours associated to it should be destroyed

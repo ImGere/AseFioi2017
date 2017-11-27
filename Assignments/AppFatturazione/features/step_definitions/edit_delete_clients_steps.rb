@@ -15,3 +15,9 @@ end
 When("I change a field to blank") do
   fill_in 'Email', with: ""
 end
+
+#When("I destroy my client") do
+  #page.accept_confirm do
+  #  click_link 'Destroy'
+  #end
+#end
