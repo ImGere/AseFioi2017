@@ -24,6 +24,10 @@ textarea {
 .center {
   text-align: center;
 }
+.left {
+  text-align: left;
+  float: left;
+}
 
 
 /* typography */
@@ -57,13 +61,19 @@ p {
 header a{
   color: #fff;
   &:hover {
-    color: #000;
-    background-color: #eee;
     text-decoration: none;
   }
 }
 
+.dropdown-toggle:hover, .no-bg-color:hover{
+  color: #fff;
+  background-color: transparent!important;
+}
 
+.dropdown-toggle:focus, .no-bg-color:focus{
+  color: #fff;
+  background-color: transparent!important;
+}
 /* footer */
 
 footer {
@@ -147,7 +157,6 @@ input, textarea, .uneditable-input {
 }
 
 
-
 /* toggle button navbar */
 .icon-bar
 {
@@ -171,3 +180,12 @@ input, textarea, .uneditable-input {
     border:1px solid #fff;
     border-radius:4px
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    color: #fff;
+    margin-top: 0px;
+ }
+ .navbar-brand{
+   padding: 10px!important;
+ }

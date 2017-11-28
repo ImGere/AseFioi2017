@@ -7,6 +7,7 @@ class ChartsController < ApplicationController
     @invoices = Invoice.where(id: invoices_hid)
     render json: @invoices.pluck(:id, :total_amount)
   end
+
   def total_invoices_amount_per_day
     @hours = Hour.where(user_id: current_user.id).to_a
     @clients = Client.where(user_id: current_user.id).to_a
