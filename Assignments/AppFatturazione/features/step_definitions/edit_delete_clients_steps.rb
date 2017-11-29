@@ -1,9 +1,9 @@
-When("I change some information about {string}") do |string|
-  @new_street_name= string
-  fill_in 'Street name', with: @new_street_name
+When("I change my client's name to {string}") do |string|
+  @new_name= string
+  fill_in 'Name', with: @new_name
 end
 Then("My client should have the new information") do
-  Client.find(@client.id).street_name=@new_street_name
+  Client.find_by_name(@new_name)==@new_name
 end
 
 When("I change the client's email to an already existing one") do
@@ -17,6 +17,12 @@ When("I change a field to blank") do
 end
 
 #When("I destroy my client") do
+  #click_on "Destroy"
+  #popup = page.driver.browser.window_handles.last
+  #page.driver.browser.switch_to.window(popup)
+  #within_window(popup) do
+  #  click_on("OK")
+  #end
   #page.accept_confirm do
   #  click_link 'Destroy'
   #end

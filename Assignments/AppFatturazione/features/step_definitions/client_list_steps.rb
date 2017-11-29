@@ -10,10 +10,7 @@ end
 Given("I have clients") do
   @client=FactoryBot.create(:client, user:@user)
 end
-When("I visit the clients page") do
-  click_on "Clients"
-  click_on "Client List"
-end
+
 Then("I should see my client list") do
   expect(page).to have_content(@client.name)
   expect(page).to have_content(@client.codice_fiscale)

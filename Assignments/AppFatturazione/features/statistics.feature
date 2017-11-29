@@ -13,6 +13,8 @@ Feature: Statistics
 
   Scenario: I have at least one client
     Given I have clients
+    And I have hours
+    And I have billed at least one invoice
     When I click on "Statistics"
     Then I should see how much I've billed for every client
 
@@ -22,7 +24,7 @@ Feature: Statistics
 
   Scenario: I have at least one hour
     Given I have clients
-    Given I have hours
+    And I have hours
     When I click on "Statistics"
     Then I should see the total amount of hours worked and billed
 

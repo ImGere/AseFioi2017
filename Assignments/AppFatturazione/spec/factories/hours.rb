@@ -6,7 +6,7 @@ FactoryBot.define do
     description "blahblah"
     user
     client
-    #is_fatturata false
+    is_fatturata false
     #invoice_id nil
   end
 end

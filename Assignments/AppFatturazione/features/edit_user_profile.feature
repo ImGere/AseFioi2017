@@ -9,9 +9,9 @@ Feature: Edit profile
   Scenario: Update Successful
     Given I am on my profile
     And I click on "Edit"
-    When I change some information about "my profile"
+    When I change my "Email" to "mynewemail@gmail.com"
     And I click on "Submit"
-    Then My profile should have the new information
+    Then My profile should have the new email "mynewemail@gmail.com"
 
   Scenario: Change user email to an already existing done
     Given I am on my profile

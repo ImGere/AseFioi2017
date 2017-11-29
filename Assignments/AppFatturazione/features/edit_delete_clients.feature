@@ -8,28 +8,29 @@ Feature: Edit and Delete Clients
     And I have clients
 
   Scenario: Edit Successful
-    Given I am on my client list
+    Given I am on my "Client" list 
     And I click on "Edit"
-    When I change some information about "the client"
+    When I change my client's name to "MR Client"
     And I click on "Submit"
     Then My client should have the new information
 
   Scenario: Change client email to an already existing done
-    Given I am on my client list
+    Given I am on my "Client" list
     And I click on "Edit"
     When I change the client's email to an already existing one
     And I click on "Submit"
     Then I should see an error message
 
   Scenario: Change a field to blank
-    Given I am on my client list
+    Given I am on my "Client" list
     And I click on "Edit"
     When I change a field to blank
     And I click on "Submit"
     Then I should see an error message
 
   Scenario: Delete a client
-    Given I am on my client list
+    Given I am on my "Client" list
     When I destroy my client
     Then I should not see that client on my client list
-    And All the hours associated to it should be destroyed
+    And All the hours associated to that client should be destroyed
+    And All the invoices billed to that client should be destroyed

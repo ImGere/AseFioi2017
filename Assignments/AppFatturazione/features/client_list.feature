@@ -8,5 +8,5 @@ Feature: Client List
 
   Scenario: The client list is not empty
     Given I have clients
-    When I visit the clients page
+    When I am on my "Client" list
     Then I should see my client list

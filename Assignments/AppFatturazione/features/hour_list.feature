@@ -10,10 +10,10 @@ Feature: Hour List
 
   Scenario: The hour list is not empty
     Given I have hours
-    When I visit the hours page
+    When I am on my "Hour" list
     Then I should see my hour list
 
   Scenario: The hour list is empty
     Given I don't have hours
-    When I visit the hours page
+    When I am on my "Hour" list
     Then I should not see any hours
