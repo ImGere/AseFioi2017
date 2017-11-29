@@ -1,0 +1,7 @@
+<h2>Total amount billed: € <%= @invoices.pluck(:total_amount).reduce(:+) %><br>
+
+<%= pie_chart(charts_total_invoices_amount_per_client_path, download: "total_amount_per_client", legend: 'top') %>
+
+<small>[Number of invoices per client per day]</small></h2>
+
+<%= line_chart charts_total_invoices_amount_per_client_per_day_path, ytitle: "Amount billed", xtitle: "Day"  %>

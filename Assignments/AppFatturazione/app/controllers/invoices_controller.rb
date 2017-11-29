@@ -5,7 +5,10 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    @hours = Hour.where(user_id: current_user.id).to_a
+    @clients = Client.where(user_id: current_user.id).to_a
+    invoices_hid = @hours.uniq.pluck(:invoice_id)
+    @invoices = Invoice.where(id: invoices_hid)
   end
 
   # GET /invoices/1

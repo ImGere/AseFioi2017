@@ -5,7 +5,7 @@ class HoursController < ApplicationController
   # GET /hours
   # GET /hours.json
   def index
-    @hours = Hour.where(user_id: current_user.id)
+    @hours = Hour.where(user_id: current_user.id).order(:date)
     @invoices = Invoice.all
   end
 
@@ -60,10 +60,14 @@ class HoursController < ApplicationController
   # DELETE /hours/1
   # DELETE /hours/1.json
   def destroy
-    @hour.destroy
+    if !@hour.is_fatturata
+      @hour.destroy
       respond_to do |format|
-      format.html { redirect_to hours_url, notice: 'Hour was successfully destroyed.' }
-      format.json { head :no_content }
+        format.html { redirect_to hours_url, notice: 'Hour was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to :controller => 'hours', :action => 'index', error_message: "You cannot delete a billed hour."
     end
   end
 
