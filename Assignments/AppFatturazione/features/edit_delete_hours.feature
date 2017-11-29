@@ -9,29 +9,29 @@ Feature: Edit Clients
     And I have hours
 
   Scenario: Edit Successful
-    Given I am on my hour list
+    Given I am on my "Hour" list
     And I click on "Edit"
-    When I change some information about the hour
+    When I change the "Description" of an activity to "New Description"
     And I click on "Submit"
-    Then My hour should have the new information
+    Then My hour should have the new description "New Description"
 
   Scenario: End Time before Start Time
-    Given I am on my hour list
+    Given I am on my "Hour" list
     And I click on "Edit"
-    When I insert and End Time that comes before Start Time
+    When The new End time comes before Start time
     And I click on "Submit"
     Then I should see an error message
 
   Scenario: Description field blank
-    Given I am on my hour list
+    Given I am on my "Hour" list
     And I click on "Edit"
-    When I change the description field to empty
+    When I change the "Description" to empty
     And I click on "Submit"
     Then I should see an error message
 
   Scenario: Client field blank
-    Given I am on my hour list
+    Given I am on my "Hour" list
     And I click on "Edit"
-    When I change the Client field to empty
+    When I change the client field to empty
     And I click on "Submit"
     Then I should see an error message

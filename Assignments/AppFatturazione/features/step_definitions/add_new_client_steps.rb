@@ -1,6 +1,6 @@
-Given("I am on my client list") do
-  click_on "Clients"
-  click_on "Client List"
+Given("I am on my {string} list") do |string|
+  click_on "#{string}s"
+  click_on "#{string} List"
 end
 And("I click on {string}") do |string|
   click_on string

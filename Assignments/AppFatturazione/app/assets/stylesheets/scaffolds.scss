@@ -50,6 +50,7 @@ div {
   @extend .has-error;
 }
 
-#error_explanation {
+#error_explanation{
   color: #D9534F;
+  visibility: visible;
 }
