@@ -3,4 +3,4 @@
 <%= pie_chart(charts_total_hours_path, download: "total", donut: true, legend: 'bottom') %>
 <h2>Total amount billed: € <%= @invoices.pluck(:total_amount).reduce(:+) %><br>
 <small>[The graph is grouped by invocie id]</small></h2>
-<%= line_chart charts_total_invoices_amount_per_day_path, xtitle: "Invoice ID", ytitle: "Invoice Amount", download: "Invoices_amount" %>
+<%= line_chart charts_total_single_invoice_amount_path, xtitle: "Invoice ID", ytitle: "Invoice Amount", download: "Invoices_amount" %>

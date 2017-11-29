@@ -10,9 +10,15 @@ Group by:
     <a class="nav-link" id="pills-month-tab" data-toggle="pill" href="#pills-month" role="tab" aria-controls="pills-month" aria-selected="false">Month</a>
   </li>
 </ul>
-
+<br/>
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade" id="pills-day-week" role="tabpanel" aria-labelledby="pills-day-week"><%= pie_chart Hour.where(user_id: current_user.id).group_by_day_of_week(:created_at, format: "%a").count %></div>
-  <div class="tab-pane fade" id="pills-day" role="tabpanel" aria-labelledby="pills-day-tab"><%= line_chart Hour.where(user_id: current_user.id).group_by_day_of_month(:created_at).count %></div>
-  <div class="tab-pane fade" id="pills-month" role="tabpanel" aria-labelledby="pills-month-tab"><%= line_chart Hour.where(user_id: current_user.id).group_by_month(:created_at, format: "%b %Y").count %></div>
+  <div class="tab-pane fade" id="pills-day-week" role="tabpanel" aria-labelledby="pills-day-week">
+    <%= line_chart charts_total_invoices_amount_per_day_of_the_week_path, ytitle: "Hour amount", xtitle: "Day of the week" %>
+  </div>
+  <div class="tab-pane fade" id="pills-day" role="tabpanel" aria-labelledby="pills-day-tab">
+    <%= line_chart charts_total_hour_count_per_day_path, ytitle: "Hour count", xtitle: "Day" %>
+  </div>
+  <div class="tab-pane fade" id="pills-month" role="tabpanel" aria-labelledby="pills-month-tab">
+    <%= line_chart charts_total_invoices_amount_per_month_path, ytitle: "Hour count", xtitle: "Month" %>
+  </div>
 </div>
