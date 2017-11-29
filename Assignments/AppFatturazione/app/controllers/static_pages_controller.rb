@@ -9,9 +9,6 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def contact
-  end
-
   def statistics
     @hours = Hour.where(user_id: current_user.id).to_a
     @clients = Client.where(user_id: current_user.id).to_a

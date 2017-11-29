@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
-  get '/contact', to: 'static_pages#contact'
   get '/statistics', to: 'static_pages#statistics'
   get '/signup', to:'users#new'
   get    '/login',   to: 'sessions#new'
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   get '/client/new', to: 'clients#new'
   post '/client/new', to: 'clients#create'
   post '/invoices/pdf', to: 'invoices#pdf'
+  get '/document', to: 'invoices#document'
 
   resources :hours
   resources :clients

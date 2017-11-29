@@ -6,5 +6,8 @@
 %>
 
 <%= render 'invoices/invoice_pdf' %>
-<%=link_to 'Create PDF document', invoice_path(@invoice, :format => :pdf) %>
+<br/>
 <%= link_to 'Back', invoices_path %>
+<p class="center">
+  <%= link_to 'Create PDF document', document_path(:format => :pdf, :controller => "invoices", :action => "document", :invoice => @new_invoice.id), target: "_blank", class: "btn btn-lg btn-primary"  %>
+</p>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Invoice n <%= @new_invoice.id%> | <%= @client.name %> | <%= @user.name %></title>
+
     <style>
     .invoice-box {
         max-width: 800px;
@@ -77,20 +78,6 @@
         font-weight: italic;
     }
 
-    @media only screen and (max-width: 600px) {
-        .invoice-box table tr.top table td {
-            width: 100%;
-            display: block;
-            text-align: center;
-        }
-
-        .invoice-box table tr.information table td {
-            width: 100%;
-            display: block;
-            text-align: center;
-        }
-    }
-
     /** RTL **/
     .rtl {
         direction: rtl;
@@ -105,9 +92,11 @@
         text-align: left;
     }
     </style>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "custom" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
   </head>
-
-<body>
+  <body onload='number_pages'>
     <div class="invoice-box">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
@@ -115,7 +104,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <%= image_tag("BillingFioi.png", style: "width:100%; max-width:450px;")  %>
+                                <%= wicked_pdf_image_tag("BillingFioi.png", style: "width:100%; max-width:450px;")  %>
                             </td>
 
                             <td>
@@ -133,12 +122,12 @@
                     <table>
                         <tr>
                             <td>
-                                <%= @user.name %><br>
+                                <strong><%= @user.name %><br/></strong>
                                 <%= @user.address %><br>
                             </td>
 
                             <td>
-                                <%= @client.name %><br>
+                                <strong><%= @client.name %><br/></strong>
                                 <%= @client.email %><br>
                                 <%= @client.partita_iva %>
                             </td>

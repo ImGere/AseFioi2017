@@ -16,13 +16,27 @@ class InvoicesController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.pdf do
-        render pdf: "file_name", :template => 'invoices/show.html.erb'  # Excluding ".pdf" extension.
-      end
     end
   end
 
   def default
+  end
+
+  def document
+    @user = current_user
+    @new_invoice = Invoice.find(params[:invoice])
+    @hours_to_bill = Hour.where(invoice_id: @new_invoice.id).to_a
+    @client = Client.find_by(id: @hours_to_bill.first.client_id)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@new_invoice.id}_#{@client.name}_#{@user.name}",
+                    :template => 'invoices/document.html.erb',  # Excluding ".pdf" extension.
+                    :orientation =>  'Landscape',
+                    page_size:       'Letter'
+      end
+    end
   end
 
   def pdf
@@ -47,7 +61,6 @@ class InvoicesController < ApplicationController
         @new_invoice.save if @new_invoice.valid?
       end
       @hours_to_bill = Hour.where(invoice_id: @new_invoice.id)
-
     else
       redirect_to :controller => 'hours', :action => 'index', error_message: "You need to at least check one hour."
       return

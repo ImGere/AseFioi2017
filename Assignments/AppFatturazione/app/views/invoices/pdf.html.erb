@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-6 col-md-border">
         <br/>
-        <%= link_to "Print PDF version", hours_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to 'Create PDF document', document_path(:format => :pdf, :controller => "invoices", :action => "document", :invoice => @new_invoice.id), target: "_blank", class: "btn btn-lg btn-primary" %>
       </div>
     </div>
     </p>
