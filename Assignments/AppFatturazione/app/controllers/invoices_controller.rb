@@ -11,6 +11,12 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name", :template => 'invoices/show.html.erb'  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def default
@@ -29,8 +35,8 @@ class InvoicesController < ApplicationController
       @new_invoice = Invoice.create
       params[:hour_ids].each do |value|
         @hour = Hour.find_by id: value
-        @user = User.find_by id: @hour.user_id
-        @client = Client.find_by id: @hour.client_id
+        @user = User.find_by id: @hour.user.id
+        @client = Client.find_by id: @hour.client.id
         @hour.invoice_id = @new_invoice.id
         @hour.is_fatturata = true
         @new_invoice.total_amount += (@hour.end_time - @hour.start_time).to_i * (@user.tarif/3600)

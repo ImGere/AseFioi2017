@@ -8,4 +8,5 @@
 %>
 
 <%= render 'invoices/invoice_pdf' %>
+<%=link_to 'Create PDF document', invoice_path(@invoice, :format => :pdf) %>
 <%= link_to 'Back', invoices_path %>

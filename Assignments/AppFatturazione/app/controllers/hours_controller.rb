@@ -61,11 +61,13 @@ class HoursController < ApplicationController
   # DELETE /hours/1.json
   def destroy
     @hour.destroy
-    respond_to do |format|
+      respond_to do |format|
       format.html { redirect_to hours_url, notice: 'Hour was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
