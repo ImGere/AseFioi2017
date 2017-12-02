@@ -13,19 +13,13 @@
     </thead>
     <tbody>
       <% @invoices.each do |invoice| %>
-      <%
-        @hours = Hour.where(invoice_id: invoice.id).to_a
-        if !@hours.blank?
-          @client = Client.find_by id: @hours.first.client_id
-        end
-       %>
         <tr>
             <td><%= invoice.id %></td>
             <td>€ <%= invoice.total_amount %></td>
-            <td><%= @client.name if !@client.blank?%></td>
+            <td><%= link_to "#{invoice.hours.first.client.name}", client_path(invoice.hours.first.client.name)%></td>
             <td>
-              <% @hours.each do |hour| %>
-                <% concat simple_format hour.description %>
+              <% invoice.hours.each do |hour| %>
+                <%= simple_format link_to "#{hour.description}", hour_path(hour.id)%>
               <% end %>
             </td>
             <td><%= link_to 'Show', invoice %></td>

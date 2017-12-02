@@ -11,6 +11,9 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @hours = Hour.where(user_id: current_user.id, client_id: @client.id).to_a
+    invoices_hid = @hours.uniq.pluck(:invoice_id)
+    @invoices = Invoice.where(id: invoices_hid)
   end
 
   # GET /clients/new
