@@ -9,7 +9,17 @@ require 'cucumber/rails'
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
-# Capybara.default_selector = :xpath
+#Capybara.default_selector = :xpath
+#Capybara.default_selector = :css
+#Capybara.default_host= "http://localhost:3000"
+#Capybara.default_driver= :capybara_webkit
+#Capybara.app_host = "http://localhost:3000"
+#Capybara.javascript_driver=:selenium
+    # selenium setting
+#Capybara.register_driver :selenium do |app|
+#    profile = Selenium::WebDriver::Firefox::Profile.new
+#   Capybara::Selenium::Driver.new( app, :browser => :firefox, :profile => profile )
+#end
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
@@ -55,5 +65,6 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
 
 World(FactoryBot::Syntax::Methods)
