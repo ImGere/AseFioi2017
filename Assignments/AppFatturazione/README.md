@@ -7,24 +7,24 @@ You will be able to analyse all you data, worked hours, invoices created and bil
 
 * Ruby version
 
-ruby 2.4.2p198 (2017-09-14 revision 59899) [x86_64-darwin17]
+> `ruby 2.4.2p198 (2017-09-14 revision 59899) [x86_64-darwin17]`
 
 * Rails version
 
-Rails 5.1.4
+> `Rails 5.1.4`
 
 * Configuration
 
-- Install ruby on your machine
-- Install Rails on your machine
-- run 'bundle install'
-- run 'rails db:migrate'
-- run 'rails server'
-- you are now able to *create a new account* and start using our web application
+  - Install ruby on your machine
+  - Install Rails on your machine
+  - run `bundle install`
+  - run `rails db:migrate`
+  - run `rails server`
+  - you are now able to *create a new account* and start using our web application
 
 * To run test:
 
-- type 'rake cucumber' on your console
+- type `rake cucumber` on your console
 
 
 * Made by: Alessandro Gerevini, Paolo Coba, Pietro Fabris
