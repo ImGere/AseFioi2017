@@ -24,7 +24,7 @@ You will be able to analyse all you data, worked hours, invoices created and bil
 
 * To run test:
 
-- type `rake cucumber` on your console
+  - type `rake cucumber` on your console
 
 
 * Made by: Alessandro Gerevini, Paolo Coba, Pietro Fabris
