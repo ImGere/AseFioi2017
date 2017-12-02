@@ -57,9 +57,11 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.json
   def destroy
-    @client.hours.each do |hour|
-      hour.invoice.destroy
-      hour.destroy
+    if !@client.hours.empty?
+      @client.hours.each do |hour|
+        hour.invoice.destroy unless hour.invoice==nil
+        hour.destroy
+      end
     end
     @client.destroy
     respond_to do |format|

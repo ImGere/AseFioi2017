@@ -6,9 +6,11 @@ Feature: Edit and Delete Clients
     Given I have an account
     And I am logged in
     And I have clients
+    And I have hours
+    And I have billed clients for the hours that I've worked
 
   Scenario: Edit Successful
-    Given I am on my "Client" list 
+    Given I am on my "Client" list
     And I click on "Edit"
     When I change my client's name to "MR Client"
     And I click on "Submit"
@@ -28,9 +30,11 @@ Feature: Edit and Delete Clients
     And I click on "Submit"
     Then I should see an error message
 
+  @javascript
   Scenario: Delete a client
-    Given I am on my "Client" list
-    When I destroy my client
+    Given I am on my "Client" menu
+    When I click on "Destroy"
+    And I confirm the popup
     Then I should not see that client on my client list
     And All the hours associated to that client should be destroyed
     And All the invoices billed to that client should be destroyed
