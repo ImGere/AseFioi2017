@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :client do
-    name "TestClient"
-    email "test2@test.com"
+    sequence(:name) {|n| "TestClient#{n}"}
+    sequence(:email) {|n| "testclient#{n}@gmail.com"}
     codice_fiscale "sdfasfsfa"
     partita_iva 123112
     user
