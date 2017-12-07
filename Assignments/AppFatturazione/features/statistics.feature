@@ -14,7 +14,7 @@ Feature: Statistics
   Scenario: I have at least one client
     Given I have clients
     And I have hours
-    And I have billed at least one invoice
+    And I have billed my clients
     When I click on "Statistics"
     Then I should see how much I've billed for every client
 
@@ -31,10 +31,10 @@ Feature: Statistics
   Scenario: No invoices created
     When I click on "Statistics"
     Then I should see an empty "invoices" list message
-
+  
   Scenario: I have created at least one invoice
     Given I have clients
     And I have hours
-    And I have billed at least one invoice
+    And I have billed my clients
     When I click on "Statistics"
     Then I should see the information about the invoices displayed on the page

@@ -1,10 +1,18 @@
 Given("I have hours") do
-  @hour=FactoryBot.create(:hour, user:@user, client:@client)
+  Client.all.each do |client|
+    FactoryBot.create_list(:hour, 3, user:@user, client: client)
+  end
 end
 
 Then("I should see my hour list") do
-  expect(page).to have_content(@hour.date)
-  expect(page).to have_content(@hour.is_fatturata)
+  Hour.all.each do |hour|
+    expect(page).to have_content(hour.date)
+    expect(page).to have_content(hour.start_time.strftime("%H:%M"))
+    expect(page).to have_content(hour.end_time.strftime("%H:%M"))
+    expect(page).to have_content(hour.description)
+    expect(page).to have_content(hour.client.name)
+    expect(page).to have_content(hour.is_fatturata)
+  end
 end
 
 Given("I don't have hours") do

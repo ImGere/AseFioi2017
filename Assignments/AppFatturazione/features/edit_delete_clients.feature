@@ -5,14 +5,14 @@ Feature: Edit and Delete Clients
   Background:
     Given I have an account
     And I am logged in
-    And I have clients
+    And I have a client called "Khal Drogo"
     And I have hours
-    And I have billed clients for the hours that I've worked
+    And I have billed my client
 
   Scenario: Edit Successful
     Given I am on my "Client" list
     And I click on "Edit"
-    When I change my client's name to "MR Client"
+    When I change my client's name to "MR Robot_Client"
     And I click on "Submit"
     Then My client should have the new information
 
@@ -32,9 +32,9 @@ Feature: Edit and Delete Clients
 
   @javascript
   Scenario: Delete a client
-    Given I am on my "Client" menu
+    Given I am on my clients menu
     When I click on "Destroy"
     And I confirm the popup
-    Then I should not see that client on my client list
+    Then I should not see "Khal Drogo" on my client list
     And All the hours associated to that client should be destroyed
     And All the invoices billed to that client should be destroyed

@@ -7,13 +7,15 @@ And("I am logged in") do
 end
 
 Given("I have clients") do
-  @client=FactoryBot.create(:client, user:@user)
+  FactoryBot.create_list(:client, 6, user:@user)
 end
 
 Then("I should see my client list") do
-  expect(page).to have_content(@client.name)
-  expect(page).to have_content(@client.codice_fiscale)
-  expect(page).to have_content(@client.email)
-  expect(page).to have_content(@client.partita_iva)
-  expect(page).to have_content(@client.address)
+  Client.all.each do |client|
+    expect(page).to have_content(client.name)
+    expect(page).to have_content(client.codice_fiscale)
+    expect(page).to have_content(client.email)
+    expect(page).to have_content(client.partita_iva)
+    expect(page).to have_content(client.address)
+  end
 end

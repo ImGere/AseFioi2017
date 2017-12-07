@@ -29,8 +29,8 @@
         <td><%= link_to "#{hour.client.name}", client_path(hour.client) %></td>
         <td><%= hour.is_fatturata %></td>
         <td><%= link_to 'Show', hour %></td>
-        <td><%= link_to 'Edit', edit_hour_path(hour) %></td>
-        <td><%= link_to 'Destroy', hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_hour_path(hour), id:"Edit#{hour.id}" %></td>
+        <td><%= link_to 'Destroy', hour, id: "Destroy[#{hour.id}]", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

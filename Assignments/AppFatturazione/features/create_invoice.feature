@@ -5,9 +5,10 @@ Feature: Create an invoice
   Background:
     Given I have an account
     And I am logged in
-    And I have clients
+    And I have a client called "Khal Drogo"
     And I have hours
 
+  
   Scenario: Invoice created successfully
     Given I am on my "Client" list
     And I click on "Show"

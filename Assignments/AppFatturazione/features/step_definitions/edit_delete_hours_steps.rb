@@ -1,3 +1,6 @@
+And("I want to edit an hour")do
+  click_on "Edit#{Hour.first.id}"
+end
 And("I change the {string} of an activity to {string}") do |string1, string2|
   fill_in string1, with: string2
 end
@@ -16,4 +19,16 @@ end
 
 When("I change the client field to empty") do
   select "", from: 'hour[client_id]'
+end
+
+Given("I am on my hours menu") do
+  visit hours_path
+end
+When("I click on {string} hour") do |string|
+  @hour=@client.hours.first
+  click_on "#{string}[#{@hour.id}]"
+end
+Then("I should not see that hour on my hour list") do
+  visit hours_path
+  expect(page).to_not have_content(@hour.description)
 end

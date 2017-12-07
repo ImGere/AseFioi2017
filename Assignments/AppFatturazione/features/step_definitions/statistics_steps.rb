@@ -2,13 +2,17 @@ Then("I should see an empty {string} list message") do |string|
   expect(page).to have_content("There are no #{string} for #{@user.name}.")
 end
 
-And("I have billed at least one invoice") do
-  @invoice=FactoryBot.create(:invoice)
-  @hour.is_fatturata=true
-  @hour.invoice=@invoice
-  @hour.save
-  @invoice.total_amount=(@hour.end_time - @hour.start_time).to_i * (@user.tarif/3600)
-  @invoice.save
+And("I have billed my clients") do
+  Client.all.each do |client|
+    invoice=FactoryBot.create(:invoice)
+    client.hours.each do |hour|
+      hour.is_fatturata=true
+      hour.invoice=invoice
+      hour.save
+      invoice.total_amount+=(hour.end_time - hour.start_time).to_i * (@user.tarif/3600)
+      invoice.save
+    end
+  end
 end
 Then("I should see how much I've billed for every client") do
   @user.clients.each do |client|
@@ -26,7 +30,7 @@ Then("I should see how much I've billed for every client") do
 
     expect(page).to have_content(total_time_billed/3600)
 
-    #expect(page).to have_content((total_time_billed/3600) * @user.tarif)
+    expect(page).to have_content((total_time_billed/3600) * @user.tarif)
   end
 end
 
@@ -43,10 +47,12 @@ Then("I should see the total amount of hours worked and billed") do
 end
 
 Then("I should see the information about the invoices displayed on the page") do
-  expect(page).to have_content(@invoice.id)
-  expect(page).to have_content(@invoice.total_amount)
-  @invoice.hours.each do |hour|
-    expect(page).to have_content(hour.client.name)
-    expect(page).to have_content(hour.description)
+  Invoice.all.each do |invoice|
+    expect(page).to have_content(invoice.id)
+    expect(page).to have_content(invoice.total_amount)
+    invoice.hours.each do |hour|
+      expect(page).to have_content(hour.client.name)
+      expect(page).to have_content(hour.description)
+    end
   end
 end

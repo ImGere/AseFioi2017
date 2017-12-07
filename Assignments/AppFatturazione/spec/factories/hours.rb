@@ -3,7 +3,7 @@ FactoryBot.define do
     date  Date.parse("2017-1-1")
     start_time Time.parse("15:00:00")
     end_time Time.parse("16:20:00")
-    description "blahblah"
+    sequence(:description) {|n| "Activity #{n}"} 
     user
     client
     is_fatturata false
