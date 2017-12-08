@@ -67,7 +67,7 @@ Copyright (c) 2017 Gerevini Alessandro, Coba Paolo and Pietro Fabris.
 
 ____
 
-## Team
+## Team :rocket:
 Developer name | Matricola
 :---: | :---:
 Alessandro Gerevini | 186052
