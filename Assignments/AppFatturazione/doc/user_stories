@@ -3,6 +3,8 @@ Legenda: I colori indicano gli indici di priorità:
   YELLOW-> media,
   GREEN -> bassa
 
+As a User I want to be able to create my account - - - - - - - - - RED
+As a User I want to be able to log in to my account - - - - - - - - - RED
 As a User I need to be able to add my working hours in the calendar - - - - - - - - -RED
 As a User I want to be able to manage my list of clients. - - - - - - - - - - - - - - - - -  RED
 As a User I want to be able to manage hours in my calendar. - - - - - - - - - - - - - - YELLOW
