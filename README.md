@@ -3,7 +3,7 @@
 This repository contains the material for the "Advanced Software Engineering" course at University of Trento, 2017-2018 edition.
 
 
-# ![BillingFioi](https://alessandrogerevini.com/img/BFLogo.png "BillingFioi 2017")
+# ![BillingFioi]((Assignments/AppFatturazione/app/assets/images/BFLogoInverted.png "BillingFioi 2017")
 
 __BillingFioi__ is a system used by users that need to keep track of their worked hours and create invoices based on that.
 
