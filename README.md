@@ -44,7 +44,12 @@ __BillingFioi__ is distribuited under the terms of the MIT License.
 
 See [LICENSE](LICENSE) for datails.
 
+## Copyright
+Copyright (c) 2017 Gerevini Alessandro, Coba Paolo and Pietro Fabris.
+
 ## Team
 - Alessandro Gerevini  	186052
 - Paolo Coba		185013
 - Pietro Fabris   188417
+
+You can even check us in the `/about` page when you run it to get more information about us and who we are.
