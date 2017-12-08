@@ -1,8 +1,8 @@
 # BillingFioi
 
-This is a simple web application that let's you keep under control you work time and let's you create invoices and PDF versions of them.
+This is a simple web application that let's you keep you work time under control  and lets you create invoices and PDF versions of them.
 
-You will be able to analyse all you data, worked hours, invoices created and billed, unbilled hours. All of this can be divided by clients and by time.
+You will be able to analyze all you data, worked hours, invoices created and billed, unbilled hours. All of this can be grouped by clients and by time.
 
 
 * Ruby version
