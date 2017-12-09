@@ -2,7 +2,6 @@
 
 This repository contains the material for the "Advanced Software Engineering" course at University of Trento, 2017-2018 edition.
 
-
 # ![BillingFioi](Assignments/AppFatturazione/app/assets/images/BFLogoInverted.png "BillingFioi 2017")
 
 __BillingFioi__ is a system used by users that need to keep track of their worked hours and create invoices based on that.
@@ -39,12 +38,16 @@ We tested it on:
 In order to run test you need to go into the project folder and run `rake cucumber`.
 Note that you need to install a specific add-on on Mozilla Firefox to be able to check the *delete billed/unbilled hours* and *delete clients* 'cause bugs.
 
+:gem: Tested with [`cucumber`](https://github.com/cucumber/cucumber-rails)
+
 #### Coverage
 
 You can check this application's test coverage by running `rake cucumber` and then open the `Assignments/AppFatturazione/coverage/index.html` that has been created, where there are useful information about the code that has been covered in the tests.
 
 Currently when you run `rake cucumber` you get this label:
-> Coverage report generated for Cucumber Features to /AseFioi2017/Assignments/AppFatturazione/coverage. 641 / 731 LOC (87.69%) covered.
+> Coverage report generated for Cucumber Features to /AseFioi2017/Assignments/AppFatturazione/coverage. 641 / 731 LOC **(87.69%)** covered.
+
+:gem: Created with [`simplecov`](https://github.com/colszowka/simplecov)
 
 ## Application's structure
 
@@ -56,6 +59,7 @@ Here is the application's structure:
 #### Models
 ![Models](Assignments/AppFatturazione/doc/models_complete.svg)
 
+:gem: Created with [`railsroady`](https://github.com/preston/railroady)
 ____
 ## License
 __BillingFioi__ is distribuited under the terms of the MIT License.
@@ -63,7 +67,7 @@ __BillingFioi__ is distribuited under the terms of the MIT License.
 See [LICENSE](LICENSE) for datails.
 
 ## Copyright
-Copyright (c) 2017 Gerevini Alessandro, Coba Paolo and Pietro Fabris.
+Copyright :copyright: 2017 Gerevini Alessandro, Coba Paolo and Pietro Fabris.
 
 ____
 
@@ -74,4 +78,4 @@ Alessandro Gerevini | 186052
 Paolo Coba | 185013
 Pietro Fabris | 188417
 
-You can even check us in the `/about` page when you run it to get more information about us and who we are.
+You can even check us in the `/about` page when you run it to get more information about us and who we are. :fireworks:
