@@ -28,6 +28,7 @@ We tested it on:
   - `bundle install`  # to install all the gems :gem: that are needed in this app
   - `rails db:migrate` # to create the db and execute all the migrations
   - `rails server`  # to launch the webserver (Puma in this case) and to be able to run our app in your browser
+- Got to `http://localhost:3000/`
 - Now you are __ready to go__ you just need to sign up and start adding your hours and clients.
 
 #### Upgrading
@@ -35,9 +36,10 @@ Instead of cloning the repository you just need to pull the new code:
 - Go to the repository folder from your terminal and run `git pull` :octocat:.
 - Then the process is the same:
   - `cd Assignments/AppFatturazione/` # to go into the app directory
-  - `bundle install`  # to install all the gems :gem: that are needed in this app
-  - `rails db:migrate` # to create the db and execute all the migrations
+  - `bundle install`  # to install all the gems :gem: that may be needed with the upgrade
+  - `rails db:migrate` # to execute all the migrations
   - `rails server`  # to launch the webserver (Puma in this case) and to be able to run our app in your browser
+- Got to `http://localhost:3000/`
 - Now you are __ready to go__ with the updated source code and the new features.
 
 ## Tests
