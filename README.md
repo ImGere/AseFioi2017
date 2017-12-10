@@ -13,11 +13,7 @@ This system also lets you check all the *statistics* that you need in `/statisti
 ## System Requirements
 This web app is developed in [Ruby On Rails](http://rubyonrails.org/), so you need to [install](http://installrails.com/) it on your machine before installing our app.
 
-This app uses:
-> Rails 5.1.4
-
-and
-> Ruby 2.4.2
+This app needs **Rails 5.1.4** and **Ruby 2.4.2**.
 
 We tested it on:
 - Ubuntu 17.10
@@ -31,7 +27,7 @@ We tested it on:
   - `bundle install`  # to install all the gems :gem: that are needed in this app
   - `rails db:migrate` # to create the db and execute all the migrations
   - `rails server`  # to launch the webserver (Puma in this case) and to be able to run our app in your browser
-- Got to `http://localhost:3000/`
+- Go to `http://localhost:3000/`
 - Now you are __ready to go__ you just need to sign up and start adding your hours and clients.
 
 #### Upgrading
@@ -42,7 +38,7 @@ Instead of cloning the repository you just need to pull the new code:
   - `bundle install`  # to install all the gems :gem: that may be needed with the upgrade
   - `rails db:migrate` # to execute all the migrations
   - `rails server`  # to launch the webserver (Puma in this case) and to be able to run our app in your browser
-- Got to `http://localhost:3000/`
+- Go to `http://localhost:3000/`
 - Now you are __ready to go__ with the updated source code and the new features.
 
 ## Tests
@@ -57,7 +53,7 @@ Note that you need to install a specific add-on on Mozilla Firefox to be able to
 You can check this application's test coverage by running `rake cucumber` and then open the `Assignments/AppFatturazione/coverage/index.html` that has been created, where there are useful information about the code that has been covered in the tests.
 
 Currently when you run `rake cucumber` you get this label:
-> Coverage report generated for Cucumber Features to /AseFioi2017/Assignments/AppFatturazione/coverage. 641 / 731 LOC **(87.69%)** covered.
+> Coverage report generated for Cucumber Features to /AseFioi2017/Assignments/AppFatturazione/coverage. 641 / 731 LOC **(87.69%) covered**.
 
 :gem: Created with [`simplecov`](https://github.com/colszowka/simplecov)
 
