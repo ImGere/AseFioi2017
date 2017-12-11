@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def statistics
+    # Variables needed in the statistics page
     @hours = Hour.where(user_id: current_user.id).to_a
     @clients = Client.where(user_id: current_user.id).to_a
     invoices_hid = @hours.uniq.pluck(:invoice_id)
