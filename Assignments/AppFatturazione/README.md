@@ -1,7 +1,7 @@
 
 # ![BillingFioi](app/assets/images/BFLogoInverted.png "BillingFioi 2017")
 
-__BillingFioi__ is a system used by users that need to keep track of their worked hours and create invoices based on that.
+__BillingFioi__ is a system used by professionals that need to keep track of their worked hours and create invoices based on that.
 
 We got a *user* that can add his *clients* and record *hours* linked to a specific client.
 Once he is ready, he can create an *invoice* and save it as *PDF*.
