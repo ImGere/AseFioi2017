@@ -1,3 +1,5 @@
+# Controller used for retrieving information about hours, invoices and clients.
+# It creates routes that will create json used to build graphs
 class ChartsController < ApplicationController
   # pie chart of billed hours
   def total_hours

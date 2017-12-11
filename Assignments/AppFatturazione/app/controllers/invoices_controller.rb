@@ -21,7 +21,7 @@ class InvoicesController < ApplicationController
 
   def default
   end
-
+  # Create the billing document
   def document
     @user = current_user
     @new_invoice = Invoice.find(params[:invoice])
@@ -38,7 +38,7 @@ class InvoicesController < ApplicationController
       end
     end
   end
-
+  # Create billing pdf version
   def pdf
     if (params.has_key?(:hour_ids))
       client_id = (Hour.find_by id: params[:hour_ids].first).client_id
