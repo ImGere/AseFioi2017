@@ -49,9 +49,6 @@ Note that you need to install a specific add-on on Mozilla Firefox to be able to
 
 You can check this application's test coverage by running `rake cucumber` and then open the `Assignments/AppFatturazione/coverage/index.html` that has been created, where there are useful information about the code that has been covered in the tests.
 
-Currently when you run `rake cucumber` you get this label:
-> Coverage report generated for Cucumber Features to /AseFioi2017/Assignments/AppFatturazione/coverage. 641 / 731 LOC **(87.69%) covered**.
-
 :gem: Created with [`simplecov`](https://github.com/colszowka/simplecov)
 
 ## Application's structure
@@ -64,7 +61,7 @@ Here is the application's structure:
 #### Models
 ![Models](doc/models_complete.svg)
 
-:gem: Created with [`railsroady`](https://github.com/preston/railroady)
+:gem: Created with [`railroady`](https://github.com/preston/railroady)
 ____
 ## License
 __BillingFioi__ is distribuited under the terms of the MIT License.
